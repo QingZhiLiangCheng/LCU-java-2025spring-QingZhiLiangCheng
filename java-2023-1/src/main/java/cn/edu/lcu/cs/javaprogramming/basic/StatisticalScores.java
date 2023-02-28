@@ -26,6 +26,55 @@ public class StatisticalScores {
 
         //从控制台循环输入78个成绩
         //统计其中各个成绩段的人数
+        //5.for
+        int count = 5;
+        for (int i = 0; i < count; i++) {
+            int score = scanner.nextInt();
+            if (score < 0 || score > 100) {
+                continue;
+            }
+
+            //jdk 14新添加的语法
+            switch (score / 10) {
+                case 10, 9 -> gradeA++;
+                case 8 -> gradeB++;
+                case 7 -> gradeC++;
+                case 6 -> gradeD++;
+                default -> gradeE++;
+            }
+
+            //switch (score / 10) {
+            //    case 10:
+            //    case 9:
+            //        gradeA++;
+            //        break;
+            //    case 8:
+            //        gradeB++;
+            //        break;
+            //    case 7:
+            //        gradeC++;
+            //        break;
+            //    case 6:
+            //        gradeD++;
+            //        break;
+            //    default:
+            //        gradeE++;
+            //}
+
+
+            //    判断成绩的等级
+            //if (score <= 100 && score >= 90) {
+            //    gradeA++;
+            //} else if (score >= 80) {
+            //    gradeB++;
+            //} else if (score >= 70) {
+            //    gradeC++;
+            //} else if (score >= 60) {
+            //    gradeD++;
+            //} else if (score >= 0) {
+            //    gradeE++;
+            //}
+        }
 
 
         System.out.println("----------------------------------------------");
