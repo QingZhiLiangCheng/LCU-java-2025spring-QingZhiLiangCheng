@@ -12,12 +12,19 @@ public class ScoresArray {
 
     public static void main(String[] args) {
         // 声明字符串数组并赋值，存储3、4班的班级名称
+        String[] classes = {"5班", "6班"};
+        //String class ="3班";
 
         // 遍历打印各班的名称
+        for (String clazz : classes) {
+            System.out.println(clazz);
+        }
 
         // 获取随机生成的成绩数组
+        int[] scores = generateScores(78);
 
         // 输出打印
+        print(scores);
 
     }
 
