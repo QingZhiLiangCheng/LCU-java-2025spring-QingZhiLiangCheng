@@ -29,11 +29,15 @@ public class ScoresArray {
      */
     public static int[] generateScores(int length) {
         // 创建length个元素的整数数组
+        int[] scores = new int[length];
 
         // 遍历这个数组，依次用生成的随机数为数组元素赋值
+        for (int i = 0; i < length; i++) {
+            scores[i] = generateScore();
+        }
 
         // 返回成绩数组
-        return null;
+        return scores;
     }
 
     /**
@@ -55,6 +59,16 @@ public class ScoresArray {
      */
     public static void print(int[] array) {
         // 代码填空
+
+        //foreach 遍历一个容器中的所有元素，遍历过程中不能修改容器的结构
+        //array.iter  iterate
+        for (int item : array) {
+            System.out.println(item);
+        }
+
+        //for (int i = 0; i < array.length; i++) {
+        //    System.out.println(array[i]);
+        //}
 
     }
 }
