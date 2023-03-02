@@ -1,5 +1,6 @@
 package cn.edu.lcu.cs.javaprogramming.basic.array;
 
+import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -21,10 +22,19 @@ public class ScoresArray {
         }
 
         // 获取随机生成的成绩数组
+        // Java中数组都是对象
         int[] scores = generateScores(78);
 
         // 输出打印
-        print(scores);
+        //print(scores);
+        // Arrays 是个工具类，专门用于操作数组
+
+        //打印原始的成绩
+        System.out.println(Arrays.toString(scores));
+
+        //    打印排序后的成绩
+        Arrays.sort(scores);
+        System.out.println(Arrays.toString(scores));
 
     }
 
@@ -53,7 +63,7 @@ public class ScoresArray {
      *
      * @return 随机生成的成绩
      */
-    private static int generateScore() {
+    public static int generateScore() {
         Random random = new Random();
         int score = random.nextInt(101);
         return score;
@@ -70,7 +80,8 @@ public class ScoresArray {
         //foreach 遍历一个容器中的所有元素，遍历过程中不能修改容器的结构
         //array.iter  iterate
         for (int item : array) {
-            System.out.println(item);
+            //System.out.println(item);
+            System.out.print("\t" + item);
         }
 
         //for (int i = 0; i < array.length; i++) {
