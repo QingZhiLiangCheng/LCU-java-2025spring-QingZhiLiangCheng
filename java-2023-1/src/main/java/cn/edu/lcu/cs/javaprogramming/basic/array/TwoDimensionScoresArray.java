@@ -8,18 +8,21 @@ package cn.edu.lcu.cs.javaprogramming.basic.array;
  * @author: ling
  * @since: 2022-02-28 17:08
  **/
-public class TwoDimentionScoresArray {
+public class TwoDimensionScoresArray {
     public static void main(String[] args) {
         // 二维数组每行元素数量可以不同，与C语言区别比较大
         // 声明2行的二维数组，列数不确定
+        int[][] scores = new int[2][];
 
         // 调用方法，随机生成41人的成绩，返回一维整型数组，给二维数组的首行赋值
         //ScoresArray.generateScores(41);
+        scores[0] = ScoresArray.generateScores(41);
+        scores[1] = ScoresArray.generateScores(43);
 
         // 调用方法，随机生成43人的成绩，返回一维整型数组，给二维数组的第2行赋值
 
         // 打印二维数组
-        //print(scores);
+        print(scores);
     }
 
 
@@ -31,8 +34,21 @@ public class TwoDimentionScoresArray {
      * @param scores
      */
     private static void print(int[][] scores) {
-        // 代码填空
+        for (int[] row : scores) {
+            for (int cell : row) {
+                System.out.print(cell + "\t");
+            }
+            System.out.println();
+        }
 
+
+        // 代码填空
+//        for (int i = 0; i < scores.length; i++) {
+//            for (int j = 0; j < scores[i].length; j++) {
+//                System.out.print(scores[i][j] + " ");
+//            }
+//            System.out.println();
+//        }
     }
 
 }
