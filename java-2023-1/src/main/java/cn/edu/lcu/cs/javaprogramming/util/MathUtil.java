@@ -43,4 +43,32 @@ public class MathUtil {
     }
 
 
+    /**
+     * 递归求阶乘，如果参数为负，中断计算，给用户一个提醒。
+     *
+     * @param n
+     * @return
+     */
+    public static int factorialR(int n) {
+        if (n < 0) {
+            // 不返回任何值。因为任何值都有可能被误会。
+            // 中断程序执行，给用户一个提醒
+            // todo 抛出异常，未完待续
+        }
+        if (n <= 1) {
+            return 1;
+        }
+        return n * factorialR(n - 1);
+    }
+
+    // 求阶乘
+    public static int factorialI(int n) {
+        int f = 1;
+        for (int i = 1; i <= n; i++) {
+            f *= i;
+        }
+        return f;
+    }
+
+
 }
