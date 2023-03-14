@@ -5,7 +5,7 @@ import lombok.*;
 import java.util.Date;
 
 /**
- * 猴子类
+ * 蝙蝠类
  *
  * @author Ling
  */
@@ -14,7 +14,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Monkey {
+public class Bat {
     private String name;
     /**
      * 种类名称
@@ -34,12 +34,8 @@ public class Monkey {
         System.out.println("用肺呼吸");
     }
 
-    public void walk() {
-        System.out.println("会走");
-    }
-
     public void eat() {
-        System.out.println("喜欢吃水果");
+        System.out.println("喜欢吃虫子");
     }
 
     public void reproduce() {
@@ -48,5 +44,13 @@ public class Monkey {
 
     public void feed() {
         System.out.println("用乳汁养育后代");
+    }
+
+    public void fly() {
+        System.out.println("会飞行");
+    }
+
+    public void sleep() {
+        System.out.println("昼伏夜出");
     }
 }
