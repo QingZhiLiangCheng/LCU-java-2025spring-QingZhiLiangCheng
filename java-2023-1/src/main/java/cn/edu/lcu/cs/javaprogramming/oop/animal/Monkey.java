@@ -27,4 +27,10 @@ public class Monkey extends Mammal {
         System.out.println("胎生");
     }
 
+    @Override
+    public void sleep() {
+        System.out.println("胎生的");
+
+    }
+
 }
