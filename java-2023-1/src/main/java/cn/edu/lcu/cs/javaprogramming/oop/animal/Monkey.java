@@ -19,4 +19,25 @@ public class Monkey {
     private String gender;
     private String temperature;
 
+
+//    呼吸，行走，游泳，飞翔，生育后代，哺育后代，进食
+    public void breath() {
+        System.out.println("用肺呼吸");
+    }
+
+    public void walk() {
+        System.out.println("会走");
+    }
+
+    public void eat() {
+        System.out.println("喜欢吃水果");
+    }
+
+    public void reproduce() {
+        System.out.println("胎生");
+    }
+
+    public void feed() {
+        System.out.println("用乳汁养育后代");
+    }
 }
