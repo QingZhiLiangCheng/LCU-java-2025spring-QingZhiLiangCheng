@@ -20,6 +20,11 @@ public class Bat extends Mammal {
         System.out.println("喜欢吃虫子");
     }
 
+    @Override
+    public void reproduce() {
+        System.out.println("胎生的");
+    }
+
     public void fly() {
         System.out.println("会飞行");
     }

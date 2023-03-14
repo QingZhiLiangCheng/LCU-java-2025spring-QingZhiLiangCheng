@@ -4,12 +4,17 @@ import lombok.*;
 
 import java.util.Date;
 
+/**
+ * 猴子类
+ *
+ * @author Ling
+ */
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public abstract class Mammal {
+public abstract class MammalOld {
     private String name;
     /**
      * 种类名称
@@ -24,13 +29,16 @@ public abstract class Mammal {
      */
     private String temperature;
 
+
     public void breath() {
         System.out.println("用肺呼吸");
     }
 
     public abstract void eat();
 
-    public abstract void reproduce();
+    public void reproduce() {
+        System.out.println("胎生");
+    }
 
     public void feed() {
         System.out.println("用乳汁养育后代");
