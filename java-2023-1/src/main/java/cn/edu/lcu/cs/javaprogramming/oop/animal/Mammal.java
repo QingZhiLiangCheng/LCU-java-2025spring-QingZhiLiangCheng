@@ -14,7 +14,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Mammal {
+public abstract class Mammal {
     private String name;
     /**
      * 种类名称
@@ -34,9 +34,7 @@ public class Mammal {
         System.out.println("用肺呼吸");
     }
 
-    public void eat() {
-        System.out.println("都吃东西");
-    }
+    public abstract void eat();
 
     public void reproduce() {
         System.out.println("胎生");
@@ -45,4 +43,6 @@ public class Mammal {
     public void feed() {
         System.out.println("用乳汁养育后代");
     }
+
+    public abstract void sleep();
 }
