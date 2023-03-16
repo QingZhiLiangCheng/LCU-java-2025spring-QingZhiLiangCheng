@@ -39,6 +39,9 @@ public abstract class Endotherm {
      */
     public abstract void reproduce();
 
+    /**
+     * 养育后代的方式
+     */
     public abstract void feed();
 
     public abstract void sleep();
