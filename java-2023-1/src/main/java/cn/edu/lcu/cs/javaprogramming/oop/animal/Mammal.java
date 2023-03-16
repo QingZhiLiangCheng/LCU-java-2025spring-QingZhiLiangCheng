@@ -1,5 +1,10 @@
 package cn.edu.lcu.cs.javaprogramming.oop.animal;
 
+/**
+ * 哺乳动物类。
+ *
+ * @author ling
+ */
 public abstract class Mammal extends Endotherm {
 
     @Override

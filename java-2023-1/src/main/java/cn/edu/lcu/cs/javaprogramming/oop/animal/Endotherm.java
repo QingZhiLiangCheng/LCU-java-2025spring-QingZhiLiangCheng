@@ -4,6 +4,9 @@ import lombok.*;
 
 import java.util.Date;
 
+/**
+ * 恒温动物类，包括哺乳动物与鸟类
+ */
 @Getter
 @Setter
 @AllArgsConstructor
