@@ -7,11 +7,6 @@ import lombok.*;
  *
  * @author Ling
  */
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-@ToString
 public class Bat extends Mammal {
 
 

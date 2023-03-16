@@ -1,40 +1,9 @@
 package cn.edu.lcu.cs.javaprogramming.oop.animal;
 
-import lombok.*;
+public abstract class Mammal extends Endotherm {
 
-import java.util.Date;
-
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-@ToString
-public abstract class Mammal {
-    private String name;
-    /**
-     * 种类名称
-     */
-    private String species;
-    private Date birthday;
-    private String color;
-    private double weight;
-    private String gender;
-    /**
-     * 体温类型（冷血、温血）
-     */
-    private String temperature;
-
-    public void breath() {
-        System.out.println("用肺呼吸");
-    }
-
-    public abstract void eat();
-
-    public abstract void reproduce();
-
+    @Override
     public void feed() {
         System.out.println("用乳汁养育后代");
     }
-
-    public abstract void sleep();
 }
