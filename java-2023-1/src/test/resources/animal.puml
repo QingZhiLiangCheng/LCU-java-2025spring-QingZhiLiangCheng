@@ -1,0 +1,96 @@
+@startuml
+class Monkey {
++ void walk()
++ void eat()
++ void reproduce()
++ void sleep()
+}
+abstract class Mammal {
++ void feed()
+}
+abstract class Bird {
++ void reproduce()
++ void walk()
+}
+abstract class Vertebrate {
+- String name
+- String species
+- Date birthday
+- String color
+- double weight
+- String gender
+- String temperature
++ {abstract}void breath()
++ {abstract}void eat()
++ {abstract}void reproduce()
++ {abstract}void feed()
++ {abstract}void sleep()
+}
+abstract class MammalOld {
+- String name
+- String species
+- Date birthday
+- String color
+- double weight
+- String gender
+- String temperature
++ void breath()
++ {abstract}void eat()
++ void reproduce()
++ void feed()
++ {abstract}void sleep()
+}
+class Whale {
++ void eat()
++ void reproduce()
++ void sleep()
+}
+interface Swimmable {
+~ void swim()
+}
+abstract class Endotherm {
++ void breath()
+}
+class Bat {
++ void eat()
++ void reproduce()
++ void fly()
++ void sleep()
+}
+class Penguin {
++ void eat()
++ void feed()
++ void sleep()
++ void swim()
+}
+abstract class Fish {
++ void breath()
++ void youyong()
+}
+class Platypus {
++ void eat()
++ void reproduce()
++ void sleep()
+}
+class Swan {
++ void eat()
++ void feed()
++ void sleep()
++ void swim()
++ void fly()
+}
+
+
+Mammal <|-- Monkey
+Endotherm <|-- Mammal
+Endotherm <|-- Bird
+Mammal <|-- Whale
+Vertebrate <|-- Endotherm
+Mammal <|-- Bat
+Bird <|-- Penguin
+Swimmable <|.. Fish
+Vertebrate <|-- Fish
+Mammal <|-- Platypus
+Swimmable <|.. Swan
+Bird <|-- Swan
+@enduml
