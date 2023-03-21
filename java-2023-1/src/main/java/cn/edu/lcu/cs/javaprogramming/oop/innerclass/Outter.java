@@ -10,4 +10,16 @@ public class Outter {
         System.out.println("外部类的打印\t" + something);
     }
 
+    /**
+     * 内部类
+     */
+    public class Inner {
+
+        private String something = "内部类中定义的一个字符串";
+
+        public void print() {
+            System.out.println("内部类的打印\t" + something);
+        }
+    }
+
 }
