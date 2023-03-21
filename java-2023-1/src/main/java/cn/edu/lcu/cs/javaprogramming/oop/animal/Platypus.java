@@ -1,6 +1,6 @@
 package cn.edu.lcu.cs.javaprogramming.oop.animal;
 
-public class Platypus extends Mammal {
+public class Platypus extends Mammal implements Swimmable {
     public Platypus() {
     }
 
@@ -16,6 +16,11 @@ public class Platypus extends Mammal {
 
     @Override
     public void sleep() {
+
+    }
+
+    @Override
+    public void swim() {
 
     }
 }

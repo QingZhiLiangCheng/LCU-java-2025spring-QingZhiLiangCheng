@@ -1,6 +1,6 @@
 package cn.edu.lcu.cs.javaprogramming.oop.animal;
 
-public class Whale extends Mammal {
+public class Whale extends Mammal implements Swimmable {
     @Override
     public void eat() {
         System.out.println("喜欢吃海鲜");
@@ -14,5 +14,10 @@ public class Whale extends Mammal {
     @Override
     public void sleep() {
         System.out.println("两个脑半球轮流睡觉");
+    }
+
+    @Override
+    public void swim() {
+
     }
 }

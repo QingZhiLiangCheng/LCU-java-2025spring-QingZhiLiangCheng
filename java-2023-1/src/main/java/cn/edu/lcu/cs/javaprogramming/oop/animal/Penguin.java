@@ -1,6 +1,6 @@
 package cn.edu.lcu.cs.javaprogramming.oop.animal;
 
-public class Penguin extends Bird {
+public class Penguin extends Bird implements Swimmable {
     @Override
     public void eat() {
         System.out.println("喜欢吃鱼");

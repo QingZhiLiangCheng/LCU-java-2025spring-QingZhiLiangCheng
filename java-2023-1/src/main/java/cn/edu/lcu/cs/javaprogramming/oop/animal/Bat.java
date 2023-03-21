@@ -7,7 +7,7 @@ import lombok.*;
  *
  * @author Ling
  */
-public class Bat extends Mammal {
+public class Bat extends Mammal implements Flyable {
 
 
     @Override
@@ -20,6 +20,7 @@ public class Bat extends Mammal {
         System.out.println("胎生的");
     }
 
+    @Override
     public void fly() {
         System.out.println("会飞行");
     }

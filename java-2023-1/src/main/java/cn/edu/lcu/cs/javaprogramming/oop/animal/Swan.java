@@ -5,7 +5,7 @@ package cn.edu.lcu.cs.javaprogramming.oop.animal;
  *
  * @author LAB
  */
-public class Swan extends Bird implements Swimmable {
+public class Swan extends Bird implements Swimmable, Flyable {
     @Override
     public void eat() {
         System.out.println("喜欢吃水草");
@@ -32,6 +32,7 @@ public class Swan extends Bird implements Swimmable {
     /**
      * 会飞
      */
+    @Override
     public void fly() {
         System.out.println("都是飞行高手");
     }
