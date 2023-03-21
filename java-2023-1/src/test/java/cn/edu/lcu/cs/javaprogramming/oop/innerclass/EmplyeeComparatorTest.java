@@ -48,6 +48,14 @@ class EmplyeeComparatorTest {
     void compareAge() {
         // 在此创建Comparator的具名实现类，作为测试类的内部类
         // 通过此内部类，对两个雇员的年龄进行比较
+        Comparator ageComparator = new Comparator() {
+            @Override
+            public int compare(Employee e1, Employee e2) {
+                return e1.getAge() - e2.getAge();
+            }
+        };
+
+        System.out.println("ageComparator.compare(zhangsan, lisi) = " + ageComparator.compare(zhangsan, lisi));
 
     }
 

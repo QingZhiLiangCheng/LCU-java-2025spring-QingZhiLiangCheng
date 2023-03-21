@@ -2,6 +2,7 @@ package cn.edu.lcu.cs.javaprogramming.oop.innerclass;
 
 import lombok.Builder;
 import lombok.Data;
+import lombok.ToString;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
@@ -37,6 +38,7 @@ public class Employee {
      */
     private String address;
 
+//    @ToString()
     public int getAge() {
         if (birthdate != null) {
             return (int) birthdate.until(LocalDate.now(), ChronoUnit.YEARS);
