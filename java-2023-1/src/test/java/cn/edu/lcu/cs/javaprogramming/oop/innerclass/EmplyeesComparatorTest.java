@@ -9,13 +9,13 @@ import java.time.LocalDate;
 import java.util.Arrays;
 
 /**
- * 通过对雇员对象的比较，演示匿名内部类。
+ * 对雇员数组进行各种排序
  *
  * @author ling
  * @date 2022/3/13 22:21
  */
 @Log
-class EmplyeesComparatorTest {
+class EmplyeesSortTest {
     Employee[] employees;
 
     @BeforeEach
@@ -50,8 +50,18 @@ class EmplyeesComparatorTest {
 
     @AfterEach
     void tearDown() {
-        System.out.println("Arrays.toString(employees) = " + Arrays.toString(employees));
-        System.out.println("-------------------华丽丽的分隔线---------------------------");
+        System.out.println("-------------------华丽丽的分隔线，排序后---------------------------");
+        for (Employee employee : employees) {
+            System.out.println(employee);
+        }
+    }
+
+    @BeforeEach
+    void beforeEach() {
+        System.out.println("-------------------华丽丽的分隔线，排序前---------------------------");
+        for (Employee employee : employees) {
+            System.out.println(employee);
+        }
     }
 
     @Test
