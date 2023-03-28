@@ -8,6 +8,7 @@ package cn.edu.lcu.cs.javaprogramming.oop.innerclass;
  *
  * @author ling
  */
+@FunctionalInterface
 public interface Comparator {
     /**
      * 比较两个雇员实例 <br>
