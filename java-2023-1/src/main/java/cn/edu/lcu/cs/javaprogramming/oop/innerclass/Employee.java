@@ -9,7 +9,7 @@ import java.time.temporal.ChronoUnit;
 
 /**
  * 雇员类
- *
+ * <p>
  * 2022/3/12 19:26
  *
  * @author ling
@@ -28,6 +28,7 @@ public class Employee {
     /**
      * 出生日期
      */
+    @ToString.Exclude
     private LocalDate birthdate;
     /**
      * 性别
@@ -38,7 +39,7 @@ public class Employee {
      */
     private String address;
 
-//    @ToString()
+    @ToString.Include(name = "age")
     public int getAge() {
         if (birthdate != null) {
             return (int) birthdate.until(LocalDate.now(), ChronoUnit.YEARS);

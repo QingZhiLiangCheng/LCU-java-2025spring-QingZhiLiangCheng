@@ -60,10 +60,26 @@ class EmplyeeComparatorTest {
     }
 
     @Test
-    void compareSalary() {
+    void compareSalaryWithAnonymousInnerClass() {
         // 在此创建Comparator的匿名实现类，作为测试类的内部类
         // 通过此内部类，对两个雇员的工资进行比较
+        Comparator comparator = new Comparator() {
+            @Override
+            public int compare(Employee e1, Employee e2) {
+                return (int) (e1.getSalary() - e2.getSalary());
+            }
+        };
 
+        System.out.println("comparator.compare(zhangsan, lisi) = " + comparator.compare(zhangsan, lisi));
+    }
+
+    @Test
+    void compareSalaryWithLambda() {
+        // 在此创建Comparator的匿名实现类，作为测试类的内部类
+        // 通过此内部类，对两个雇员的工资进行比较
+        Comparator comparator = (e1, e2) -> (int) (e1.getSalary() - e2.getSalary());
+
+        System.out.println("comparator.compare(zhangsan, lisi) = " + comparator.compare(zhangsan, lisi));
     }
 
 
