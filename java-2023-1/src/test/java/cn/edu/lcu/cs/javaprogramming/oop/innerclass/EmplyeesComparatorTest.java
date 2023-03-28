@@ -66,17 +66,17 @@ class EmplyeesSortTest {
 
     @Test
     void sortByAge() {
-
+        Arrays.sort(employees, (e1, e2) -> e1.getAge() - e2.getAge());
     }
 
     @Test
     void sortBySalary() {
-
+        Arrays.sort(employees, (e1, e2) -> (int) (e1.getSalary() - e2.getSalary()));
     }
 
     @Test
     void sortBySalaryDescend() {
-
+        Arrays.sort(employees, (e1, e2) -> (int) (e1.getSalary() - e2.getSalary()) * -1);
     }
 
 

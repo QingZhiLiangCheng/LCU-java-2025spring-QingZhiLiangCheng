@@ -9,7 +9,7 @@ package cn.edu.lcu.cs.javaprogramming.oop.innerclass;
  * @author ling
  */
 @FunctionalInterface
-public interface Comparator {
+public interface Comparator<E> {
     /**
      * 比较两个雇员实例 <br>
      * 究竟针对哪个或哪些属性进行比较，比较的规则是什么，都不确定，所以定义为抽象的方法。
