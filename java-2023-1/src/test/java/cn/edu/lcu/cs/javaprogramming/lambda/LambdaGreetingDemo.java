@@ -21,7 +21,12 @@ public class LambdaGreetingDemo {
     @Test
     void greetingWithAnonymousInnerClass() {
         // 代码填空
-
+        greeting = new Greeting() {
+            @Override
+            public String greet(String somebody) {
+                return "今天上课你走神了吗？ " + somebody;
+            }
+        };
 
         log.info(greeting.greet("zhangsan"));
     }
@@ -32,7 +37,7 @@ public class LambdaGreetingDemo {
     @Test
     void greetingWithLambda() {
         // 代码填空
-
+        greeting = somebody -> "Hello, " + somebody + "!";
 
         log.info(greeting.greet("zhangsan"));
     }
@@ -44,7 +49,7 @@ public class LambdaGreetingDemo {
     void greetingWithMethodReferenceHello() {
         // 引用静态方法 cn.edu.lcu.cs.javaprogramming.lambda.Hello.sayHello
         // 代码填空
-
+        greeting = Hello::sayHello;
 
         log.info(greeting.greet("lisi"));
     }

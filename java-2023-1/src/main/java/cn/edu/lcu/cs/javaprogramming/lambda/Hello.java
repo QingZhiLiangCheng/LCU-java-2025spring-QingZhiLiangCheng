@@ -10,12 +10,12 @@ public class Hello {
     /**
      * 问候某人
      *
-     * @param someboby
+     * @param somebody
      * @return
      */
-    public static String sayHello(String someboby) {
-        String greeting = "Hello, " + someboby + "!";
+    public static String sayHello(String somebody) {
+        String greeting = "Hello, " + somebody + "!";
         return greeting;
-        //System.out.println("Hello, " + someboby + "!");
+        //System.out.println("Hello, " + somebody + "!");
     }
 }

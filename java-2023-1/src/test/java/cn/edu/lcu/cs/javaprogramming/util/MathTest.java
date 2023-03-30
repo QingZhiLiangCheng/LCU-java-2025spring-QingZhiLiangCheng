@@ -19,8 +19,12 @@ class MathTest {
         // Math是个工具类，没必要实例化。
         // 如何从根本上避免工具类实例化？
 //        Math math = new Math();
+//        发生了除法异常，整个程序异常退出，导致后续正常的代码也得不到执行
+        System.out.println(1 / 0);
+
         System.out.println(Math.PI);
         System.out.println(PI);
+
     }
 
     @Test
