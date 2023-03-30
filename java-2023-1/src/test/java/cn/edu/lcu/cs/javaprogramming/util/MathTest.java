@@ -7,6 +7,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 // 静态导入
 //import static cn.edu.lcu.cs.javaprogramming.util.Math.PI;
 import java.util.function.BinaryOperator;
+import java.util.function.UnaryOperator;
 
 import static cn.edu.lcu.cs.javaprogramming.util.Math.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -100,7 +101,13 @@ class MathTest {
     void unaryOperationOppositeNumber() {
         double num = -3.14;
 
-        double result = Math.unaryOperation(num, (oper) -> oper * -1);
+//        double result = Math.unaryOperation(num, (oper) -> oper * -1);
+        double result = Math.unaryOperation(num, new UnaryOperator<Double>() {
+            @Override
+            public Double apply(Double oper) {
+                return oper * -1;
+            }
+        });
 
         System.out.println("num = " + num);
         System.out.println("result = " + result);
@@ -112,7 +119,13 @@ class MathTest {
         double operand1 = 3;
         double operand2 = -2;
 
-        BinaryOperator<Double> add = (o1, o2) -> o1 + o2;
+//        BinaryOperator<Double> add = (o1, o2) -> o1 + o2;
+        BinaryOperator<Double> add = new BinaryOperator<Double>() {
+            @Override
+            public Double apply(Double o1, Double o2) {
+                return o1 + o2;
+            }
+        };
         double sum = Math.binaryOperation(operand1, operand2, add);
         double difference = Math.binaryOperation(operand1, operand2, (o1, o2) -> o1 - o2);
 
