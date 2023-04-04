@@ -2,6 +2,7 @@ package cn.edu.lcu.cs.javaprogramming.util;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 // 静态导入
@@ -139,4 +140,9 @@ class MathTest {
         System.out.println("difference = " + difference);
     }
 
+    @ParameterizedTest
+    @CsvSource({"10,10", "3,2", "2,3"})
+    void divide(double dividend, double divisor) {
+        System.out.printf("Math.divide(%f, %f) = %f\n", dividend, divisor, Math.divide(dividend, divisor));
+    }
 }

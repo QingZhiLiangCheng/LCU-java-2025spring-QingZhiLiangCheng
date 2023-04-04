@@ -130,4 +130,17 @@ public class Math {
     public static double binaryOperation(double operand1, double operand2, BinaryOperator<Double> operator) {
         return operator.apply(operand1, operand2);
     }
+
+
+    /**
+     *
+     * @param dividend 被除数
+     * @param divisor 除数
+     * @return 商
+     */
+    public static double divide(double dividend, double divisor) {
+
+        return dividend / divisor;
+    }
+
 }
