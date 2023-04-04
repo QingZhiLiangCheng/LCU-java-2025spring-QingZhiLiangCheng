@@ -1,5 +1,6 @@
 package cn.edu.lcu.cs.javaprogramming.basic;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class StatisticalScores {
@@ -32,7 +33,7 @@ public class StatisticalScores {
             int score = 0;
             try {
                 score = scanner.nextInt();
-            } catch (Exception e) {
+            } catch (InputMismatchException e) {
                 scanner.next();
                 continue;
             }

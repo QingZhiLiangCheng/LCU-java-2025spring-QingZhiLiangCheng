@@ -92,14 +92,19 @@ public class Math {
             // 如果有溢出，正数会转换为负数。
             // ？？？
             long result = n * factorial(n - 1);
-            return result;
+            if (result > 0) {
+                return result;
+            } else {
+                throw new RuntimeException("结果溢出：" + n + "! = " + result);
+            }
         } else if (n == 1 || n == 0) {
             return 1;
         } else {
             // 如果输入非法，应该发出一个警告，中断程序执行，而不是返回-1。
             // 若返回-1，可能阴差阳错，被当作正确结果使用，造成无法想像的严重后果。
             // ？？？
-            return -1;
+//            return -1;
+            throw new IllegalArgumentException("参数非法：负数（" + n + "）不能求阶乘");
         }
     }
 
