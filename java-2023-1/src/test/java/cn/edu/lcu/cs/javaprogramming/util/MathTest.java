@@ -141,8 +141,19 @@ class MathTest {
     }
 
     @ParameterizedTest
-    @CsvSource({"10,10", "3,2", "2,3"})
+    @CsvSource({"10,10", "3,2", "2,3", "2,0"})
     void divide(double dividend, double divisor) {
         System.out.printf("Math.divide(%f, %f) = %f\n", dividend, divisor, Math.divide(dividend, divisor));
+    }
+
+    @ParameterizedTest
+    @CsvSource({"2,0"})
+    void dividedByZero(double dividend, double divisor) {
+        try {
+            Math.divide(dividend, divisor);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("e.getMessage() = " + e.getMessage());
+        }
     }
 }

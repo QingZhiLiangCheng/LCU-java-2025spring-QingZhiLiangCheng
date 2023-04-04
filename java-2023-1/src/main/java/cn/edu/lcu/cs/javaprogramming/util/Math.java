@@ -1,5 +1,7 @@
 package cn.edu.lcu.cs.javaprogramming.util;
 
+import cn.edu.lcu.cs.javaprogramming.exception.DividedByZeroException;
+
 import java.util.function.BinaryOperator;
 import java.util.function.UnaryOperator;
 
@@ -139,8 +141,11 @@ public class Math {
      * @return 商
      */
     public static double divide(double dividend, double divisor) {
-
-        return dividend / divisor;
+        if (divisor != 0) {
+            return dividend / divisor;
+        } else {
+            throw new DividedByZeroException();
+        }
     }
 
 }
