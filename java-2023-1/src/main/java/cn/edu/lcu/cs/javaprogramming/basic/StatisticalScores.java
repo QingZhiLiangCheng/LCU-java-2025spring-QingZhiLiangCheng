@@ -28,11 +28,18 @@ public class StatisticalScores {
         //统计其中各个成绩段的人数
         //5.for
         int count = 5;
-        for (int i = 0; i < count; i++) {
-            int score = scanner.nextInt();
+        for (int i = 0; i < count; ) {
+            int score = 0;
+            try {
+                score = scanner.nextInt();
+            } catch (Exception e) {
+                scanner.next();
+                continue;
+            }
             if (score < 0 || score > 100) {
                 continue;
             }
+            i++;
 
             //jdk 14新添加的语法
             switch (score / 10) {
