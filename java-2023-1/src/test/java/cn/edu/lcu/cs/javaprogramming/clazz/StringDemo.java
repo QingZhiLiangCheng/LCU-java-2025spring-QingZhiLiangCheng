@@ -1,6 +1,8 @@
 package cn.edu.lcu.cs.javaprogramming.clazz;
 
 import cn.edu.lcu.cs.javaprogramming.BaseTest;
+import cn.edu.lcu.cs.javaprogramming.oop.Dog;
+import cn.edu.lcu.cs.javaprogramming.oop.Student;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -25,13 +27,33 @@ public class StringDemo extends BaseTest {
      * @param underScoreString 转换前的字符串
      */
     @ParameterizedTest
-    @ValueSource(strings = {"map_under_score_to_camel_case"})
+    @ValueSource(strings = {"map_under_score_to_camel_case_a"})
     void mapUnderScoreToCamelCase(String underScoreString) {
         String camelCase = null;
         // 代码填空
+        String[] split = underScoreString.split("_");
+        StringBuilder sb = new StringBuilder();
+        for (String item : split) {
+            sb.append(toUpperCaseFirstLetter(item));
+        }
+        camelCase = sb.toString();
 
+        assertEquals("MapUnderScoreToCamelCaseA", camelCase);
+    }
 
-        assertEquals("MapUnderScoreToCamelCase", camelCase);
+    /**
+     * 将字符串首字母大写
+     *
+     * @param src
+     * @return
+     */
+    String toUpperCaseFirstLetter(String src) {
+        // 代码填空
+        if (src == null || src.trim().length() == 0) {
+            return "";
+        }
+
+        return Character.toUpperCase(src.charAt(0)) + src.substring(1);
     }
 
     /**
@@ -48,19 +70,6 @@ public class StringDemo extends BaseTest {
 
 
         assertEquals("map_under_score_to_camel_case", underScore);
-    }
-
-    /**
-     * 将字符串首字母大写
-     *
-     * @param src
-     * @return
-     */
-    String toUpperCaseFirstLetter(String src) {
-        // 代码填空
-
-
-        return null;
     }
 
     /**
@@ -81,16 +90,32 @@ public class StringDemo extends BaseTest {
      */
     @Test
     public void equals() {
+        Dog dog1 = new Dog();
+        Dog dog2 = new Dog();
+        System.out.println("(dog1==dog2) = " + (dog1 == dog2));
+
         // 字符串是特殊的对象，在堆上分配，不可更改，唯一
-        String lisi = "lisi";
+        String lisi1 = "lisi";
         String lisi2 = "lisi";
         String lisi3 = "LisI".toLowerCase();
 
         // 两两判断3个串是否相等
         // 代码填空
 
+        System.out.println("lisi1 = " + lisi1);
+        System.out.println("lisi2 = " + lisi2);
+        System.out.println("lisi3 = " + lisi3);
 
+        System.out.println("lisi1.hashCode() = " + lisi1.hashCode());
+        System.out.println("lisi2.hashCode() = " + lisi2.hashCode());
+        System.out.println("lisi3.hashCode() = " + lisi3.hashCode());
 
+        System.out.println("(lisi1==lisi2) = " + (lisi1 == lisi2));
+        System.out.println("(lisi1==lisi3) = " + (lisi1 == lisi3));
+        System.out.println("(lisi2==lisi3) = " + (lisi2 == lisi3));
+
+        System.out.println("lisi1.equals(lisi2) = " + lisi1.equals(lisi2));
+        System.out.println("lisi1.equals(lisi3) = " + lisi1.equals(lisi3));
     }
 
     /**
@@ -102,6 +127,7 @@ public class StringDemo extends BaseTest {
         // 依据正则表达式拆分字符串为字符串数组
         String[] split = null;
         // 代码填空
+        split = string.split("[- :]");
 
 
         assertEquals("[2021, 04, 18, 22, 23, 28]", Arrays.toString(split));
@@ -109,6 +135,7 @@ public class StringDemo extends BaseTest {
         String url = "http://ee-c.lcu.edu.cn/";
         String[] split2 = null;
         // 代码填空
+        split2 = url.split("[:/.]");
 
         assertEquals("[http, , , ee-c, lcu, edu, cn]", Arrays.toString(split2));
     }
