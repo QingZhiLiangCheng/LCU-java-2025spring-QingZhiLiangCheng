@@ -85,7 +85,7 @@ public class StackDemo extends BaseTest {
         System.out.println("radix = " + radix);
 
         String radixString = toRadixString(n, radix);
-        System.out.print("convertion = " + radixString);
+        System.out.println("convertion = " + radixString);
     }
 
     /**
