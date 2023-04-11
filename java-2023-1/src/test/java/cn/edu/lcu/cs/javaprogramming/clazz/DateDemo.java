@@ -8,6 +8,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 import java.time.LocalDate;
 import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
+import java.util.Date;
 
 /**
  * 日期时间演示
@@ -26,11 +27,14 @@ public class DateDemo {
      * @param day
      */
     @ParameterizedTest
-    @CsvSource({"1949,10,1"})
+    @CsvSource({"1949,10,1", "49,9,1"})
     void birthdate(int year, int month, int day) {
         //代码填空
-
-
+        System.out.println("year = " + year);
+        System.out.println("month = " + month);
+        System.out.println("day = " + day);
+        Date birthdate = new Date(year, month, day);
+        System.out.println("birthdate = " + birthdate);
     }
 
     /**
