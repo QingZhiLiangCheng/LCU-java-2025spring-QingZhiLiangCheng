@@ -1,31 +1,35 @@
 package cn.edu.lcu.cs.javaprogramming.util;
 
+import cn.edu.lcu.cs.javaprogramming.BaseTest;
+import cn.edu.lcu.cs.javaprogramming.exception.DividedByZeroException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 // 静态导入
 //import static cn.edu.lcu.cs.javaprogramming.util.Math.PI;
+import java.math.BigInteger;
 import java.util.function.BinaryOperator;
-import java.util.function.UnaryOperator;
 
 import static cn.edu.lcu.cs.javaprogramming.util.Math.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-class MathTest {
+class MathTest extends BaseTest {
+
+    @Test
+    void testDivideByZero() {
+        int i = 1 / 0;
+//        i.soutv
+        System.out.println("i = " + i);
+    }
 
     @Test
     void testMath() {
         // Math是个工具类，没必要实例化。
         // 如何从根本上避免工具类实例化？
 //        Math math = new Math();
-//        发生了除法异常，整个程序异常退出，导致后续正常的代码也得不到执行
-        System.out.println(1 / 0);
-
         System.out.println(Math.PI);
         System.out.println(PI);
-
     }
 
     @Test
@@ -65,15 +69,61 @@ class MathTest {
     }
 
     /**
+     * 循环计算阶乘。 <br>
+     * 20是临界值，超过20的Long类型阶乘会溢出。 <br>
+     * 即阶乘的结果超出了Long类型64位补码的表示范围。
+     * 超出的部分被丢弃，剩余的低64位按照补码来解释，就有可能解读为负数。
+     * factorial(18) = 6402373705728000
+     * factorial(19) = 121645100408832000
+     * factorial(20) = 2432902008176640000
+     * factorial(21) = -4249290049419214848
+     * factorial(22) = -1250660718674968576
+     * factorial(23) = 8128291617894825984
+     * factorial(24) = -7835185981329244160
+     * factorial(25) = 7034535277573963776
+     * factorial(26) = -1569523520172457984
+     */
+    @Test
+    void factorials() {
+        for (int i = 0; i < 30; i++) {
+            try {
+                System.out.println("factorial(" + i + ") = " + factorial(i));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /**
+     * 循环计算阶乘。 <br>
+     * 用BigInteger计算的阶乘。 <br>
+     * factorialSafe(20) = 2432902008176640000
+     * factorialSafe(21) = 51090942171709440000
+     * factorialSafe(22) = 1124000727777607680000
+     * factorialSafe(23) = 25852016738884976640000
+     * factorialSafe(24) = 620448401733239439360000
+     * factorialSafe(25) = 15511210043330985984000000
+     * factorialSafe(26) = 403291461126605635584000000
+     * factorialSafe(27) = 10888869450418352160768000000
+     * factorialSafe(28) = 304888344611713860501504000000
+     * factorialSafe(29) = 8841761993739701954543616000000
+     */
+    @Test
+    void factorialSafeDemo() {
+        for (int i = 0; i < 30; i++) {
+            System.out.println("factorialSafe(" + i + ") = " + factorialSafe(i));
+        }
+    }
+
+    /**
      * 对阶乘进行测试，所有输入都是有效的。
      */
     @Test
     void factorialWithValidInput() {
-        System.out.println(factorial(25));
-
         assertEquals(1, factorial(0));
         assertEquals(1, factorial(1));
         assertEquals(3628800, factorial(10));
+        assertEquals(2432902008176640000L, factorial(20));
     }
 
     /**
@@ -106,13 +156,7 @@ class MathTest {
     void unaryOperationOppositeNumber() {
         double num = -3.14;
 
-//        double result = Math.unaryOperation(num, (oper) -> oper * -1);
-        double result = Math.unaryOperation(num, new UnaryOperator<Double>() {
-            @Override
-            public Double apply(Double oper) {
-                return oper * -1;
-            }
-        });
+        double result = Math.unaryOperation(num, (oper) -> oper * -1);
 
         System.out.println("num = " + num);
         System.out.println("result = " + result);
@@ -124,13 +168,7 @@ class MathTest {
         double operand1 = 3;
         double operand2 = -2;
 
-//        BinaryOperator<Double> add = (o1, o2) -> o1 + o2;
-        BinaryOperator<Double> add = new BinaryOperator<Double>() {
-            @Override
-            public Double apply(Double o1, Double o2) {
-                return o1 + o2;
-            }
-        };
+        BinaryOperator<Double> add = (o1, o2) -> o1 + o2;
         double sum = Math.binaryOperation(operand1, operand2, add);
         double difference = Math.binaryOperation(operand1, operand2, (o1, o2) -> o1 - o2);
 
@@ -140,20 +178,14 @@ class MathTest {
         System.out.println("difference = " + difference);
     }
 
-    @ParameterizedTest
-    @CsvSource({"10,10", "3,2", "2,3", "2,0"})
-    void divide(double dividend, double divisor) {
-        System.out.printf("Math.divide(%f, %f) = %f\n", dividend, divisor, Math.divide(dividend, divisor));
+    @Test
+    void divide() {
+        assertThrows(DividedByZeroException.class, () -> Math.divide(1, 0));
     }
 
-    @ParameterizedTest
-    @CsvSource({"2,0"})
-    void dividedByZero(double dividend, double divisor) {
-        try {
-            Math.divide(dividend, divisor);
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("e.getMessage() = " + e.getMessage());
-        }
+    @Test
+    void bigIntegerDemo() {
+        BigInteger n = new BigInteger("999999").pow(9999);
+        System.out.println("n = " + n);
     }
 }

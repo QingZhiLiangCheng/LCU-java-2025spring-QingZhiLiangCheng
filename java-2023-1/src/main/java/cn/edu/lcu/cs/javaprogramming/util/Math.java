@@ -2,6 +2,8 @@ package cn.edu.lcu.cs.javaprogramming.util;
 
 import cn.edu.lcu.cs.javaprogramming.exception.DividedByZeroException;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.function.BinaryOperator;
 import java.util.function.UnaryOperator;
 
@@ -94,11 +96,10 @@ public class Math {
             // 如果有溢出，正数会转换为负数。
             // ？？？
             long result = n * factorial(n - 1);
-            if (result > 0) {
-                return result;
-            } else {
-                throw new RuntimeException("结果溢出：" + n + "! = " + result);
+            if (result < 0) {
+                throw new RuntimeException(n + " 的阶乘溢出了。");
             }
+            return result;
         } else if (n == 1 || n == 0) {
             return 1;
         } else {
@@ -106,8 +107,52 @@ public class Math {
             // 若返回-1，可能阴差阳错，被当作正确结果使用，造成无法想像的严重后果。
             // ？？？
 //            return -1;
-            throw new IllegalArgumentException("参数非法：负数（" + n + "）不能求阶乘");
+            throw new IllegalArgumentException(n + " 的阶乘是无效的。");
         }
+    }
+
+
+    /**
+     * 用递归求阶乘，使用BigInteger保存结果。溢出的问题可以忽略不计。
+     *
+     * @param n
+     * @return
+     */
+    public static BigInteger factorialSafe(long n) {
+        if (n > 1) {
+            // 应该考虑结果溢出的情况。
+            // 如果结果溢出了，应该发出一个警告，中断程序执行，而不是返回溢出后的错误结果。
+            // 如果有溢出，正数会转换为负数。
+            // ？？？
+            BigInteger bigResult = factorialSafe(n - 1).multiply(BigInteger.valueOf(n));
+            return bigResult;
+        } else if (n == 1 || n == 0) {
+            return BigInteger.ONE;
+        } else {
+            // 如果输入非法，应该发出一个警告，中断程序执行，而不是返回-1。
+            // 若返回-1，可能阴差阳错，被当作正确结果使用，造成无法想像的严重后果。
+            // ？？？
+//            return -1;
+            throw new IllegalArgumentException(n + " 的阶乘是无效的。");
+        }
+    }
+
+
+    /**
+     * 除法操作，实在没有啥实际意义，仅用于演示异常操作。
+     *
+     * @param dividend 被除数
+     * @param divisor  除数
+     * @return quotient商
+     */
+    public static double divide(double dividend, double divisor) {
+        // 添加除数为0的判断
+        // 如果除数为0，抛出一个自定义的异常
+        if (divisor == 0) {
+            throw new DividedByZeroException("0不能做除数");
+        }
+
+        return dividend / divisor;
     }
 
     /**
@@ -132,20 +177,4 @@ public class Math {
     public static double binaryOperation(double operand1, double operand2, BinaryOperator<Double> operator) {
         return operator.apply(operand1, operand2);
     }
-
-
-    /**
-     *
-     * @param dividend 被除数
-     * @param divisor 除数
-     * @return 商
-     */
-    public static double divide(double dividend, double divisor) {
-        if (divisor != 0) {
-            return dividend / divisor;
-        } else {
-            throw new DividedByZeroException();
-        }
-    }
-
 }
