@@ -72,7 +72,6 @@ public class ScoreListDemo {
         // 代码填空
 
 
-
         print(scores);
     }
 
@@ -84,7 +83,6 @@ public class ScoreListDemo {
     void deleteFailingScores() {
         // 删除不及格的平时成绩
         // 代码填空
-
 
 
         print(scores);
@@ -100,8 +98,11 @@ public class ScoreListDemo {
 
         // 获取平时成绩不及格的成绩
         // 代码填空
-
-
+        for (Score score : scores) {
+            if (score.getOrdinaryScore() < 60) {
+                failingScores.add(score);
+            }
+        }
 
         print(failingScores);
     }
@@ -138,5 +139,10 @@ public class ScoreListDemo {
             System.out.println(score);
         }
 
+    }
+
+    @AfterEach
+    void afterEach() {
+        System.out.println("--------------------------------------------------------");
     }
 }
