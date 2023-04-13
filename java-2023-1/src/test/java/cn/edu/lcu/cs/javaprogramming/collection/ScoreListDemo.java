@@ -16,7 +16,7 @@ import java.util.Random;
 // 通过Order注解设置执行顺序
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class ScoreListDemo {
-    private static final int studentAmount = 84;
+    private static final int studentAmount = 78;
     /**
      * 成绩列表，接口类型。不要声明为任何实现类。
      */
@@ -55,9 +55,9 @@ public class ScoreListDemo {
         String randomString = String.format("%04d", random.nextInt(10000));
 
         Score score = Score.builder()
-                .clazzName(random.nextBoolean() ? "3班" : "4班")
+                .clazzName(random.nextBoolean() ? "5班" : "6班")
                 .studentName("学生" + randomString)
-                .studentNo("202020" + randomString)
+                .studentNo("202120" + randomString)
                 .build();
         return score;
     }
@@ -118,8 +118,9 @@ public class ScoreListDemo {
         int[] randomScores = new Random().ints(studentAmount, 0, 101).toArray();
         // 循环将随机成绩赋值给成绩列表中的平时成绩
         // 代码填空
-
-
+        for (int i = 0; i < studentAmount; i++) {
+            scores.get(i).setOrdinaryScore(randomScores[i]);
+        }
 
         //遍历打印
         print(scores);
@@ -133,7 +134,9 @@ public class ScoreListDemo {
     void print(List<Score> scores) {
         // 遍历打印成绩
         // 代码填空
-
+        for (Score score : scores) {
+            System.out.println(score);
+        }
 
     }
 }
