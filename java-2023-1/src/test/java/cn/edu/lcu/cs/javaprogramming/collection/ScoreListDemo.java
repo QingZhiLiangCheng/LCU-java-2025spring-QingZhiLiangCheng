@@ -82,10 +82,32 @@ public class ScoreListDemo {
     @Order(3)
     void deleteFailingScores() {
         // 删除不及格的平时成绩
+//        foreach循环，不能改变迭代对象的结构
         // 代码填空
+//        for (Score score : scores) {
+//            if (score.getOrdinaryScore() < 60) {
+//                scores.remove(score);
+//            }
+//        }
 
+
+//        for (int i = 0; i < scores.size(); i++) {
+//            Score score = scores.get(i);
+//            if (score.getOrdinaryScore() < 60) {
+//                scores.remove(score);
+//            }
+//        }
+
+        int size = scores.size();
+        for (int i = size - 1; i >= 0; i--) {
+            Score score = scores.get(i);
+            if (score.getOrdinaryScore() < 60) {
+                scores.remove(score);
+            }
+        }
 
         print(scores);
+        System.out.println("scores.size() = " + scores.size());
     }
 
     /**
