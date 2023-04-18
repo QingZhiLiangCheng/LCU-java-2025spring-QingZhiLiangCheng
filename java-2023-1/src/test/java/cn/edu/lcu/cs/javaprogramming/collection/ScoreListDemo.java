@@ -3,6 +3,7 @@ package cn.edu.lcu.cs.javaprogramming.collection;
 import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 
@@ -70,8 +71,10 @@ public class ScoreListDemo {
     void sortScores() {
         // 根据平时成绩排序
         // 代码填空
-
-
+//        scores.sort(Comparator.comparingInt(Score::getOrdinaryScore));
+//        scores.sort((s1, s2) -> s1.getOrdinaryScore() - s2.getOrdinaryScore());
+//        scores.sort((s1, s2) -> s1.getOrdinaryScore().compareTo(s2.getOrdinaryScore()));
+        scores.sort(Score::compareTo);
         print(scores);
     }
 
