@@ -1,10 +1,13 @@
 package cn.edu.lcu.cs.javaprogramming.collection;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
+import javax.swing.text.Keymap;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -36,7 +39,8 @@ class ScoreMapDemo {
     /**
      * 演示查询耗费的时长
      */
-    @Test
+//    @Test
+    @RepeatedTest(10)
     void findById() {
         long id = 40;
         begin = Instant.now();
@@ -80,8 +84,10 @@ class ScoreMapDemo {
     @Test
     void traversalWithKeySet() {
         //代码填空
-
-
+        Set<Long> keys = scoreMap.keySet();
+        for (Long key : keys) {
+            System.out.println(scoreMap.get(key));
+        }
     }
 
     /**
@@ -90,7 +96,10 @@ class ScoreMapDemo {
     @Test
     void traversalWithValues() {
         //代码填空
-
+        Collection<Score> values = scoreMap.values();
+        for (Score value : values) {
+            System.out.println(value);
+        }
 
     }
 
@@ -100,8 +109,7 @@ class ScoreMapDemo {
     @Test
     void traversalWithForEach() {
         //代码填空
-
-
+        scoreMap.forEach((k, v) -> System.out.println(v));
     }
 
     /**
@@ -110,8 +118,7 @@ class ScoreMapDemo {
     @Test
     void traversalWithEntrySet() {
         //代码填空
-
-
+        scoreMap.entrySet().forEach(entry -> System.out.println(entry.getValue()));
     }
 
 }
