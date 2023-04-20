@@ -76,14 +76,23 @@ public class ScoreStreamDemo extends BaseTest {
     /**
      * 判断是否有总成绩恰好等于特定值的成绩
      *
-     * @param totalScore
+     * @param ordinaryScore
      */
     @ParameterizedTest
-    @ValueSource(doubles = {0, 60, 100})
-    void isTotalScoreAnyMatch(Double totalScore) {
-        System.out.println("totalScore = " + totalScore);
+    @ValueSource(ints = {0, 60, 100})
+    void isTotalScoreAnyMatch(Integer ordinaryScore) {
+        System.out.println("ordinaryScore = " + ordinaryScore);
         // 代码填空
+        boolean isFound = scores.stream()
+                .anyMatch(score -> score.getOrdinaryScore().equals(ordinaryScore));
 
+        Score foundScore = scores.stream()
+                .filter(score -> score.getOrdinaryScore().equals(ordinaryScore))
+                .findFirst().orElse(null);
+
+        System.out.println("isFound = " + isFound);
+        System.out.println("foundScore = " + foundScore);
+        System.out.println("scores = " + scores);
     }
 
     /**
