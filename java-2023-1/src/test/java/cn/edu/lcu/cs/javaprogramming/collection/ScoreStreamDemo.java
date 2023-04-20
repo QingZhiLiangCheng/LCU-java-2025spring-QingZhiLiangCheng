@@ -86,13 +86,7 @@ public class ScoreStreamDemo extends BaseTest {
         boolean isFound = scores.stream()
                 .anyMatch(score -> score.getOrdinaryScore().equals(ordinaryScore));
 
-        Score foundScore = scores.stream()
-                .filter(score -> score.getOrdinaryScore().equals(ordinaryScore))
-                .findFirst().orElse(null);
-
         System.out.println("isFound = " + isFound);
-        System.out.println("foundScore = " + foundScore);
-        System.out.println("scores = " + scores);
     }
 
     /**
@@ -101,8 +95,16 @@ public class ScoreStreamDemo extends BaseTest {
     @Test
     void statisticsOfTotalScore() {
         //代码填空
+        Double max = scores.stream()
+                .map(score -> score.getTotalScore())
+                .max(Double::compareTo)
+                .orElse(Double.MIN_VALUE);
 
-
+        System.out.println("max = " + max);
+        System.out.println(scores.stream()
+                .map(score -> score.getTotalScore())
+                .sorted()
+                .collect(Collectors.toList()));
     }
 
     /**
