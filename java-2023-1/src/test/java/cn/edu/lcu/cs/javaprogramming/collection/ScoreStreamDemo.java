@@ -39,7 +39,9 @@ public class ScoreStreamDemo extends BaseTest {
         //    }
         //}
 
-        Optional<Score> optional = scores.stream().filter(score -> id.equals(score.getId())).findFirst();
+        Optional<Score> optional = scores.stream()
+                .filter(score -> id.equals(score.getId()))
+                .findFirst();
         found = optional.orElse(null);
         //found = optional.orElseThrow(NoSuchElementException::new);
 
@@ -112,7 +114,8 @@ public class ScoreStreamDemo extends BaseTest {
                 // 把流中元素的类型转换为另外一种类型，就是映射操作
                 .map(score -> score.getStudentName())
                 .collect(Collectors.toList());
-        studentNames.forEach(System.out::println);
+//        studentNames.forEach(System.out::println);
+        System.out.println(studentNames);
     }
 
     /**
@@ -121,7 +124,31 @@ public class ScoreStreamDemo extends BaseTest {
     @Test
     void findFailingStudentNameAndTotalScore() {
         //代码填空
+        List<Map<String, Object>> rows = scores.stream()
+                .filter(score -> score.getTotalScore() < 60)
+                .map(score -> {
+                    Map<String, Object> row = new HashMap<String, Object>();
+                    row.put("studentName", score.getStudentName());
+                    row.put("totalScore", score.getTotalScore());
+                    return row;
+                })
+                .collect(Collectors.toList());
 
+        System.out.println(rows);
+
+//        List<Object[]> objects = scores.stream()
+//                .filter(score -> score.getTotalScore() < 60)
+//                .map(score -> {
+//                    Object[] row = new Object[2];
+//                    row[0] = score.getStudentName();
+//                    row[1] = score.getTotalScore();
+//                    return row;
+//                })
+//                .collect(Collectors.toList());
+//
+//        objects.forEach(row -> {
+//            System.out.println(row[0] + "\t" + row[1]);
+//        });
 
     }
 
