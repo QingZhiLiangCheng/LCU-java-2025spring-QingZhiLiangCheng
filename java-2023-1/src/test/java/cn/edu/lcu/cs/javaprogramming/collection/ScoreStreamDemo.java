@@ -53,8 +53,22 @@ public class ScoreStreamDemo extends BaseTest {
     @Test
     void findPassed() {
         // 代码填空
+        // 传统方式
+//        int count = 0;
+//        for (Score score : scores) {
+//            if (score.getTotalScore() >= 60) {
+//                System.out.println("score = " + score);
+//                count++;
+//            }
+//        }
+//        System.out.println("count = " + count);
 
+        List<Score> passedScores = scores.stream()
+                .filter(score -> score.getTotalScore() >= 60)
+                .collect(Collectors.toList());
 
+        System.out.println("passedScores.size() = " + passedScores.size());
+        passedScores.forEach(System.out::println);
     }
 
     /**
@@ -86,8 +100,19 @@ public class ScoreStreamDemo extends BaseTest {
     @Test
     void findFailingStudentName() {
         //代码填空
+//        for (Score score : scores) {
+//            if (score.getTotalScore()<60) {
+//                System.out.println(score.getStudentName());
+//            }
+//        }
 
 
+        List<String> studentNames = scores.stream()
+                .filter(score -> score.getTotalScore() < 60)
+                // 把流中元素的类型转换为另外一种类型，就是映射操作
+                .map(score -> score.getStudentName())
+                .collect(Collectors.toList());
+        studentNames.forEach(System.out::println);
     }
 
     /**
