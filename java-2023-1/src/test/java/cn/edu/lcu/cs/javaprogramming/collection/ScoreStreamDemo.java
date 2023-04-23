@@ -71,6 +71,14 @@ public class ScoreStreamDemo extends BaseTest {
 
         System.out.println("passedScores.size() = " + passedScores.size());
         passedScores.forEach(System.out::println);
+
+//        Stream<Score> scoreStream = scores.stream().filter(score -> score.getTotalScore() >= 60);
+//        // count是终端操作，流被关闭了
+//        long passedCount = scoreStream.count();
+//        System.out.println("passedCount = " + passedCount);
+//        // 流已经被前边的终端操作关闭，不能再次操作，会报异常
+//        scoreStream.forEach(System.out::println);
+
     }
 
     /**
@@ -105,6 +113,15 @@ public class ScoreStreamDemo extends BaseTest {
                 .map(score -> score.getTotalScore())
                 .sorted()
                 .collect(Collectors.toList()));
+
+        DoubleSummaryStatistics statistics = scores.stream()
+                .collect(Collectors.summarizingDouble(Score::getTotalScore));
+        System.out.println("statistics.getAverage() = " + statistics.getAverage());
+        System.out.println("statistics.getCount() = " + statistics.getCount());
+        System.out.println("statistics.getMax() = " + statistics.getMax());
+        System.out.println("statistics.getMin() = " + statistics.getMin());
+        System.out.println("statistics.getSum() = " + statistics.getSum());
+
     }
 
     /**
