@@ -45,7 +45,7 @@ public class FileDemo extends BaseTest {
      * @throws IOException
      */
     @ParameterizedTest
-    @CsvSource({"D:\\FileDemo.java", "IODemo.java", "/FileDemo.java", "./FileDemo.java", "/", "/windows", "C:\\windows", "src/test/java/cn/edu/lcu/cs/javaprogramming/io/FileDemo.java"})
+    @CsvSource({"D:\\FileDemo.java", "IODemo.java", "/FileDemo.java", "../FileDemo.java", "/", "/windows", "C:\\windows", "src/test/java/cn/edu/lcu/cs/javaprogramming/io/FileDemo.java"})
     void fileDemo(String filename) throws IOException {
         // 创建文件对象，无论存在与否都正确返回。
         // 名字叫File，其实也可能是目录（文件夹）
@@ -110,7 +110,7 @@ public class FileDemo extends BaseTest {
      * @throws IOException
      */
     @ParameterizedTest
-    @CsvSource({"2020.34.csv", "/2020.34.csv", "cn/edu/lcu/cs/javaprogramming/io/FileDemo.class"})
+    @CsvSource({"2021.56.csv", "/2021.56.csv", "cn/edu/lcu/cs/javaprogramming/io/FileDemo.class"})
     void classpathDemo(String classpathFilename) throws IOException, URISyntaxException {
         // 用户工作目录，用于拼接相对路径
         System.out.println("System.getProperty(\"user.dir\") = " + System.getProperty("user.dir"));
@@ -141,33 +141,51 @@ public class FileDemo extends BaseTest {
      * @throws IOException
      */
     @ParameterizedTest
-    @CsvSource({"src/main/resources/2020.34.csv"})
+    @CsvSource({"src/main/resources/2021.56.csv"})
     void inputFile(String filename) {
         File file = new File(filename);
         if (file.exists()) {
-            FileInputStream ins = null;
+                FileInputStream ins = null;
             try {
-                // 创建文件输入字节流，只能读取二进制字节
                 ins = new FileInputStream(file);
-                int b = -1;
-                // 持续读取字节，并赋值
-                // 如果读取到-1，说明文件读取结束
-                while ((b = ins.read()) != -1) {
-                    //将读取的二进制字节直接输出到控制台
-                    System.out.print(b);
+                int bytesRead = 0;
+                while ((bytesRead = ins.read()) != 1) {
+                    System.out.print(bytesRead);
                 }
             } catch (IOException e) {
-                e.printStackTrace();
+                throw new RuntimeException(e);
             } finally {
-                // 无论前边有没有异常发生，本分支都会执行
                 try {
-                    // 将IO流关闭
-                    // 如果流没有正常关闭，会有资源泄漏
                     ins.close();
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    throw new RuntimeException(e);
                 }
             }
+
+
+//            FileInputStream ins = null;
+//            try {
+//                // 创建文件输入字节流，只能读取二进制字节
+//                ins = new FileInputStream(file);
+//                int b = -1;
+//                // 持续读取字节，并赋值
+//                // 如果读取到-1，说明文件读取结束
+//                while ((b = ins.read()) != -1) {
+//                    //将读取的二进制字节直接输出到控制台
+//                    System.out.print(b);
+//                }
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            } finally {
+//                // 无论前边有没有异常发生，本分支都会执行
+//                try {
+//                    // 将IO流关闭
+//                    // 如果流没有正常关闭，会有资源泄漏
+//                    ins.close();
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//            }
         } else {
             System.out.println("文件找不到：" + file.getAbsolutePath());
         }
