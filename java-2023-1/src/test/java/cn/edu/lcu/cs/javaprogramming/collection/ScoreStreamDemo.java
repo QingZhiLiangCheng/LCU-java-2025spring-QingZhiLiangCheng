@@ -186,7 +186,15 @@ public class ScoreStreamDemo extends BaseTest {
     @Test
     void sortByClazzAndStudentNo() {
         //代码填空
-
+        scores.stream()
+                .sorted(Comparator
+                        // 先根据班级名称排序
+                        .comparing(Score::getClazzName)
+                        // 如果班级名称相同，再按照学号排序
+                        .thenComparing(Score::getStudentNo)
+                        // 整体顺序颠倒
+                        .reversed())
+                .forEach(System.out::println);
     }
 
     /**
@@ -195,7 +203,13 @@ public class ScoreStreamDemo extends BaseTest {
     @Test
     void toMap() {
         //代码填空
-
+        Map<Long, Score> scoreMap = scores.stream()
+                // 收集为映射
+                // 第一个参数为key，第二个参数为value
+                // k-v均可由表达式计算得到
+                // 本例中，value原样返回，没有进一步处理
+                .collect(Collectors.toMap(Score::getId, score -> score));
+        scoreMap.forEach((k, v) -> System.out.println(k + "\t" + v));
 
     }
 
@@ -206,7 +220,10 @@ public class ScoreStreamDemo extends BaseTest {
     void partitioningBy() {
         //将成绩分为及格与不及格两部分
         //代码填空
-
+        Map<Boolean, List<Score>> parts = scores.stream()
+                //.map(Score::getTotalScore)
+                .collect(Collectors.partitioningBy(score -> score.getTotalScore() < 60));
+        parts.forEach((k, v) -> System.out.println((k ? "不及格" : "及格") + "\n\t" + v));
     }
 
     /**
@@ -216,7 +233,10 @@ public class ScoreStreamDemo extends BaseTest {
     void groupingBy() {
         //按照班级分组
         // 代码填空
-
+        Map<String, List<Score>> groups = scores.stream()
+                // 按照班级名称分组
+                .collect(Collectors.groupingBy(score -> score.getClazzName()));
+        groups.forEach((k, v) -> System.out.println(k + "\n\t" + v));
 
     }
 
@@ -226,6 +246,13 @@ public class ScoreStreamDemo extends BaseTest {
     @Test
     void csvFailingRoster() {
         // 代码填空
-
+        String failingRoster = scores.stream()
+                // 保留不及格的成绩
+                .filter(score -> score.getTotalScore() < 60)
+                // 成绩流转换为姓名组成的字符串流
+                .map(Score::getStudentName)
+                // 字符串连接操作，可指定前缀与后缀
+                .collect(Collectors.joining(", ", "不及格人员名单\n[", "]"));
+        System.out.println(failingRoster);
     }
 }
