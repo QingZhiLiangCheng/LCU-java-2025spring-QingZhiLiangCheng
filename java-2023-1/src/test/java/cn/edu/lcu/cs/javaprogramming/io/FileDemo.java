@@ -149,7 +149,7 @@ public class FileDemo extends BaseTest {
             try {
                 ins = new FileInputStream(file);
                 int bytesRead = 0;
-                while ((bytesRead = ins.read()) != 1) {
+                while ((bytesRead = ins.read()) != -1) {
                     System.out.print(bytesRead);
                 }
             } catch (IOException e) {
@@ -198,7 +198,7 @@ public class FileDemo extends BaseTest {
      * @throws IOException
      */
     @ParameterizedTest
-    @CsvSource({"src/main/resources/2020.34.csv"})
+    @CsvSource({"src/main/resources/2021.56.csv"})
     void readFile(String filename) {
         File file = new File(filename);
         if (file.exists()) {
