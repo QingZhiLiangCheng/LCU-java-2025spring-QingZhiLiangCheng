@@ -31,7 +31,7 @@ class FilesDemo extends BaseTest {
      * @throws IOException
      */
     @ParameterizedTest
-    @CsvSource({"src/main/resources/2020.34.csv,target/new.csv"})
+    @CsvSource({"src/main/resources/2021.56.csv,target/new.csv"})
     void copy(String srcFileName, String dstFileName) throws IOException {
         Path copied = Files.copy(Path.of(srcFileName), Path.of(dstFileName), StandardCopyOption.REPLACE_EXISTING);
         System.out.println("copied = " + copied);
@@ -64,7 +64,7 @@ class FilesDemo extends BaseTest {
      * @param fileName
      */
     @ParameterizedTest
-    @CsvSource({"classpath:2020.34.csv, 赵", "classpath:/2020.34.csv, 朱", "src/main/resources/2020.34.csv, 张"})
+    @CsvSource({"classpath:2021.56.csv, 赵", "classpath:/2021.56.csv, 朱", "src/main/resources/2021.56.csv, 张"})
     public void findStudentFromFileLikely(String fileName, String username) throws IOException {
         File file = FileUtil.getFile(fileName);
         if (file.exists() && file.isFile()) {
@@ -97,7 +97,7 @@ class FilesDemo extends BaseTest {
      * @throws URISyntaxException
      */
     @ParameterizedTest
-    @ValueSource(strings = {"target/copycon.txt", "classpath:/2020.34.csv"})
+    @ValueSource(strings = {"target/copycon.txt", "classpath:/2021.56.csv"})
     public void type(String pathName) throws IOException, URISyntaxException {
         Path path = null;
         // 如果文件名前缀是 classpath: ，就把类路径转换成绝对路径
