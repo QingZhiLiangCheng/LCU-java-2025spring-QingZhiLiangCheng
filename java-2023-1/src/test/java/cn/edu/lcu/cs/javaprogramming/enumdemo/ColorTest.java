@@ -14,6 +14,7 @@ class ColorTest {
         Color[] values = Color.values();
         for (Color value : values) {
             System.out.println("value = " + value);
+            System.out.println("value.ordinal() = " + value.ordinal());
         }
     }
 
