@@ -20,5 +20,8 @@ class ColorTest {
 
     @Test
     void valueOf() {
+        Color 红 = Color.valueOf("RED");
+        System.out.println("红 = " + 红);
+        System.out.println("红.ordinal() = " + 红.ordinal());
     }
 }
