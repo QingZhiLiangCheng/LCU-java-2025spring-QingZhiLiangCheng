@@ -11,7 +11,6 @@ class BeanUtilTest {
     @Test
     void printFields() throws IllegalAccessException {
         Score score = ScoreUtil.nextScore();
-        System.out.println("score = " + score);
         BeanUtil.printFields(score);
     }
 }
