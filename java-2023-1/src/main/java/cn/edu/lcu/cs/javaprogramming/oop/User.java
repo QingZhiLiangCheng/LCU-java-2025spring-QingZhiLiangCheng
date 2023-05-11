@@ -18,7 +18,7 @@ import java.time.temporal.ChronoUnit;
 @AllArgsConstructor
 @Data
 public class User implements Serializable {
-    @Range(min = 1)
+    @Range(min = 1, max = Integer.MAX_VALUE)
     private Long id;
 
     @Range(min = 1550, max = Integer.MAX_VALUE)

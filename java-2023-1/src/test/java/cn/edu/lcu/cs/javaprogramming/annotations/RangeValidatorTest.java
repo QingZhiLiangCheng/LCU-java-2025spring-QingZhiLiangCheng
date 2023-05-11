@@ -39,7 +39,7 @@ class RangeValidatorTest {
         User user = new User();
         user.setId(0L);
         System.out.println("user = " + user);
-        System.out.println("RangeValidator.validate(user) = " + RangeValidator.validate(user));
+//        System.out.println("RangeValidator.validate(user) = " + RangeValidator.validate(user));
         assertFalse(RangeValidator.validate(user));
 
         user.setId(1L);

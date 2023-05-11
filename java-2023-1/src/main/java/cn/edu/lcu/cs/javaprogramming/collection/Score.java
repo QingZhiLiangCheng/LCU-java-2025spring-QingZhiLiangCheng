@@ -1,6 +1,7 @@
 package cn.edu.lcu.cs.javaprogramming.collection;
 
 
+import cn.edu.lcu.cs.javaprogramming.annotations.Range;
 import lombok.Builder;
 import lombok.Data;
 import lombok.ToString;
@@ -39,6 +40,8 @@ public class Score implements Comparable<Score>, Serializable {
     /**
      * 平时成绩
      */
+//    @Range(min = 0, max = 100)
+    @Range
     private Integer ordinaryScore;
 
     /**
