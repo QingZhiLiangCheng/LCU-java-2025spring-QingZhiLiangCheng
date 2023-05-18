@@ -27,7 +27,7 @@ public class JdbcDemo {
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
         // jdbc查询的流程
         // 1、加载数据库驱动
-        Class.forName(DRIVER_NAME);
+//        Class.forName(DRIVER_NAME);
 
         // 2、获取数据库连接
         Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
