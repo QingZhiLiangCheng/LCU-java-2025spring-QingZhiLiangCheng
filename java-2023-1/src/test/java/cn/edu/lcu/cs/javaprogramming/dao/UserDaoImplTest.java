@@ -55,8 +55,11 @@ class UserDaoImplTest extends BaseTest {
         assertEquals(user.getId(), id);
     }
 
-    @Test
-    void findByUsername() {
+    @ParameterizedTest
+    @ValueSource(strings = {"lisi"})
+    void findByUsername(String username) {
+        List<User> users = userDao.findByUsername(username);
+        System.out.println(users);
     }
 
     @Test
