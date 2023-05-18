@@ -1,8 +1,6 @@
 package cn.edu.lcu.cs.javaprogramming.db;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 /**
  * 数据库工具类
@@ -29,14 +27,32 @@ public class JdbcDemo {
 
         // 2、获取数据库连接
         Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
-        System.out.println("connection = " + connection);
+
+        // 如果connection非空，说明获取连接成功
+        // connection = com.mysql.jdbc.JDBC4Connection@5d624da6
+//        System.out.println("connection = " + connection);
 
         // 3、创建statement语句
+        Statement statement = connection.createStatement();
+
+
         // 4、执行查询
+        String sql = "SELECT * FROM student";
+        ResultSet resultSet = statement.executeQuery(sql);
+
         // 5、处理结果集
+        while (resultSet.next()) {
+            // 从当前行中获取各列的数据
+            long id = resultSet.getLong(1);
+            long id1 = resultSet.getLong("id");
+            System.out.println("id = " + id);
+            System.out.println("id1 = " + id1);
+        }
 
 
         // 6、关闭各种资源，关闭顺序与打开顺序相反。
+        resultSet.close();
+        statement.close();
         connection.close();
 
     }
