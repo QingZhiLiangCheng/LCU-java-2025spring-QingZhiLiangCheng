@@ -48,13 +48,16 @@ public class JdbcDemo {
 
         // 5、处理结果集
         while (resultSet.next()) {
-            Student student = new Student();
-            student.setId(resultSet.getLong("id"));
-            student.setStudentNo(resultSet.getString("student_no"));
-            student.setName(resultSet.getString("student_name"));
-            student.setGender(resultSet.getString("gender"));
             Date birthdate = resultSet.getDate("birthdate");
-            student.setBirthDate(birthdate==null ? null : birthdate.toLocalDate());
+
+            Student student = Student.builder()
+                    .id(resultSet.getLong("id"))
+                    .studentNo(resultSet.getString("student_no"))
+                    .name(resultSet.getString("student_name"))
+                    .gender(resultSet.getString("gender"))
+                    .birthDate(birthdate == null ? null : birthdate.toLocalDate())
+                    .build();
+
             students.add(student);
         }
 

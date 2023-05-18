@@ -19,7 +19,7 @@ import java.util.Objects;
 //@EqualsAndHashCode
 @Getter
 @Setter
-//@Builder
+@Builder
 public class Student implements Cloneable {
     private long id;
     private String studentNo;
@@ -31,8 +31,6 @@ public class Student implements Cloneable {
      */
     private boolean valid;
 
-    public Student() {
-    }
 
     public int getAge() {
         if (birthDate != null) {
@@ -45,6 +43,7 @@ public class Student implements Cloneable {
     /**
      * 实现Cloneable接口，重写clone()方法，对象才可以被克隆。 <br>
      * 可以将本方法修改为public
+     *
      * @return
      * @throws CloneNotSupportedException
      */
