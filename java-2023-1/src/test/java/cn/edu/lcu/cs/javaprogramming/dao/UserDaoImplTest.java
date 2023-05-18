@@ -35,7 +35,7 @@ class UserDaoImplTest extends BaseTest {
     }
 
     @ParameterizedTest
-    @CsvSource({"lisi,123456"})
+    @CsvSource({"lisi,123"})
     void login(String username, String password) {
         List<User> users = userDao.findByUsernameAndPassword(username, password);
         User loggedUser = null;

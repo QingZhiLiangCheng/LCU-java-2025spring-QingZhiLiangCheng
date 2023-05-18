@@ -1,13 +1,37 @@
 package cn.edu.lcu.cs.javaprogramming.dao;
 
+import cn.edu.lcu.cs.javaprogramming.db.DBUtil;
 import cn.edu.lcu.cs.javaprogramming.entity.User;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserDaoImpl implements UserDao {
     @Override
     public List<User> findAll() {
-        return null;
+        List<User> users = new ArrayList<User>();
+
+        try (Connection connection = DBUtil.getConnection()) {
+            Statement statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT * FROM user");
+            while (rs.next()) {
+                User user = User.builder()
+                        .id(rs.getLong("id"))
+                        .username(rs.getString("username"))
+                        .password(rs.getString("password"))
+                        .realName(rs.getString("real_name"))
+                        .build();
+                users.add(user);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return users;
     }
 
     @Override
