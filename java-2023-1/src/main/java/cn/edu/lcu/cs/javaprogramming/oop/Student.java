@@ -19,7 +19,7 @@ import java.util.Objects;
 //@EqualsAndHashCode
 @Getter
 @Setter
-@Builder
+//@Builder
 public class Student implements Cloneable {
     private long id;
     private String studentNo;
@@ -30,6 +30,9 @@ public class Student implements Cloneable {
      * 是否有效
      */
     private boolean valid;
+
+    public Student() {
+    }
 
     public int getAge() {
         if (birthDate != null) {

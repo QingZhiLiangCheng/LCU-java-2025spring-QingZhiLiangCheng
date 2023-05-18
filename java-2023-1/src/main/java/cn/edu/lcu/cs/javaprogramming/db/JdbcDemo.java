@@ -1,6 +1,10 @@
 package cn.edu.lcu.cs.javaprogramming.db;
 
+import cn.edu.lcu.cs.javaprogramming.oop.Student;
+
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 数据库工具类
@@ -40,13 +44,18 @@ public class JdbcDemo {
         String sql = "SELECT * FROM student";
         ResultSet resultSet = statement.executeQuery(sql);
 
+        List<Student> students = new ArrayList<>();
+
         // 5、处理结果集
         while (resultSet.next()) {
-            // 从当前行中获取各列的数据
-            long id = resultSet.getLong(1);
-            long id1 = resultSet.getLong("id");
-            System.out.println("id = " + id);
-            System.out.println("id1 = " + id1);
+            Student student = new Student();
+            student.setId(resultSet.getLong("id"));
+            student.setStudentNo(resultSet.getString("student_no"));
+            student.setName(resultSet.getString("student_name"));
+            student.setGender(resultSet.getString("gender"));
+            Date birthdate = resultSet.getDate("birthdate");
+            student.setBirthDate(birthdate==null ? null : birthdate.toLocalDate());
+            students.add(student);
         }
 
 
@@ -54,6 +63,9 @@ public class JdbcDemo {
         resultSet.close();
         statement.close();
         connection.close();
+
+
+        System.out.println(students);
 
     }
 
