@@ -2,6 +2,7 @@ package cn.edu.lcu.cs.javaprogramming.dao;
 
 import cn.edu.lcu.cs.javaprogramming.db.DBUtil;
 import cn.edu.lcu.cs.javaprogramming.entity.User;
+import lombok.Cleanup;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -89,6 +90,29 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public List<User> findByUsernameAndPassword(String username, String password) {
-        return null;
+        List<User> users = new ArrayList<User>();
+
+
+        try {
+            @Cleanup
+            Connection connection = DBUtil.getConnection();
+            Statement statement = connection.createStatement();
+
+            ResultSet rs = statement.executeQuery("SELECT * FROM user WHERE username = '" + username + "' AND password = '" + password + "'");
+            while (rs.next()) {
+                User user = User.builder()
+                        .username(rs.getString("username"))
+                        .password(rs.getString("password"))
+                        .realName(rs.getString("real_name"))
+                        .gender(rs.getString("gender"))
+                        .build();
+                users.add(user);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+        return users;
     }
 }
