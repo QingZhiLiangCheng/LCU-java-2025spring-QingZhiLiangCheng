@@ -101,6 +101,11 @@ class UserDaoImplTest extends BaseTest {
     @ParameterizedTest
     @CsvSource({"lisi,123456", "any' or '1'='1, any' or '1'='1", "lisi';#, any"})
     void findByUsernameAndPassword(String username, String password) {
+        // "SELECT * FROM user WHERE username = '" + username + "' AND password = '" + password + "'"
+        // select * from user where username = 'any' or '1'='1' and password = 'any' or '1'='1'
+        // sql injection sql注入
+
+
         System.out.println("username = " + username);
         System.out.println("password = " + password);
         List<User> users = userDao.findByUsernameAndPassword(username, password);

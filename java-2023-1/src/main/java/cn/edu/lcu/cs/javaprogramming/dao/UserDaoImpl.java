@@ -4,10 +4,7 @@ import cn.edu.lcu.cs.javaprogramming.db.DBUtil;
 import cn.edu.lcu.cs.javaprogramming.entity.User;
 import lombok.Cleanup;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -88,17 +85,30 @@ public class UserDaoImpl implements UserDao {
         return 0;
     }
 
+    /**
+     * 安全的查询，没有SQL注入的危险
+     *
+     * @param username
+     * @param password
+     * @return
+     */
     @Override
     public List<User> findByUsernameAndPassword(String username, String password) {
         List<User> users = new ArrayList<User>();
 
-
         try {
             @Cleanup
             Connection connection = DBUtil.getConnection();
-            Statement statement = connection.createStatement();
+//            Statement statement = connection.createStatement();
+//            String sql = "SELECT * FROM user WHERE username = '" + username + "' AND password = '" + password + "'";
+//            ResultSet rs = statement.executeQuery(sql);
 
-            ResultSet rs = statement.executeQuery("SELECT * FROM user WHERE username = '" + username + "' AND password = '" + password + "'");
+
+            String sql = "SELECT * FROM user WHERE username = ? and password = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, username);
+            statement.setString(2, password);
+            ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 User user = User.builder()
                         .username(rs.getString("username"))
@@ -112,6 +122,38 @@ public class UserDaoImpl implements UserDao {
             e.printStackTrace();
         }
 
+        return users;
+    }
+
+    /**
+     * 不安全的查询，有SQL注入的危险
+     *
+     * @param username
+     * @param password
+     * @return
+     */
+    public List<User> findByUsernameAndPasswordUnsafe(String username, String password) {
+        List<User> users = new ArrayList<User>();
+
+        try {
+            @Cleanup
+            Connection connection = DBUtil.getConnection();
+            Statement statement = connection.createStatement();
+
+            String sql = "SELECT * FROM user WHERE username = '" + username + "' AND password = '" + password + "'";
+            ResultSet rs = statement.executeQuery(sql);
+            while (rs.next()) {
+                User user = User.builder()
+                        .username(rs.getString("username"))
+                        .password(rs.getString("password"))
+                        .realName(rs.getString("real_name"))
+                        .gender(rs.getString("gender"))
+                        .build();
+                users.add(user);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         return users;
     }
