@@ -14,7 +14,7 @@ class MyCounterTest {
 
         // 当前就是主线程
         // 主线程允许其他线程插队
-//        counter1.join();
+        counter1.join();
 //        counter2.join();
         System.out.println(Thread.currentThread().getName() + " 结束了");
     }
