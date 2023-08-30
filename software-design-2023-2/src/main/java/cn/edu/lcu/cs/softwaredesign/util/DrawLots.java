@@ -18,7 +18,7 @@ import java.util.Random;
  */
 public class DrawLots {
 	public static void main(String[] args) throws URISyntaxException {
-		String filename = "/课堂表现.csv";
+		String filename = "/课堂表面.csv";
 		URI uri = DrawLots.class.getResource(filename).toURI();
 		List<String> lines = null;
 		try {
