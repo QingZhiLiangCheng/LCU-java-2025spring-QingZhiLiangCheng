@@ -11,6 +11,7 @@
     <url>http://maven.apache.org</url>
     <modules>
         <module>java-2023-1</module>
+        <module>software-design-2023-2</module>
     </modules>
     <build>
         <plugins>
