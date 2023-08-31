@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd"><!--本地仓库-->
+    <localRepository>D:/maven/repository</localRepository>
+    <interactiveMode>true</interactiveMode>
+    <offline>false</offline><!--配置权限,使用默认用户-->
+    <servers>
+        <server><!--这是server的id（注意不是用户登陆的id），该id与repository元素的id相匹配。 -->
+            <id>maven-releases</id>
+            <username>admin</username>
+            <password>2321035705Ma</password>
+        </server>
+        <server>
+            <id>maven-snapshots</id>
+            <username>admin</username>
+            <password>2321035705Ma</password>
+        </server>
+        <server>
+            <id>myself_group</id>
+            <username>admin</username>
+            <password>2321035705Ma</password>
+        </server>
+    </servers>
+    <mirrors><!--阿里云镜像-->
+        <mirror>
+            <id>alimaven</id>
+            <name>aliyun maven</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <mirrorOf>central</mirrorOf>
+        </mirror>
+    </mirrors>
+    <profiles>
+        <profile>
+            <id>nexus</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+                <jdk>1.8</jdk>
+            </activation>
+            <repositories><!-- 私有库地址-->
+                <repository>
+                    <id>nexus-group</id>
+                    <url>http://localhost:8081/repository/nexus-group/
+                    </url><!-- <releases><enabled>true</enabled></releases>告诉Maven可以从这个仓库下载releases版本的构件-->
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+            <pluginRepositories><!--插件库地址--><!-- 如果是配置了repositories，那么你会发现在mvn在下载依赖的时候，一部分从阿里云下载，一部分还是从默认的仓库（https://repo.maven.apache.org ）下载-->
+                <pluginRepository>
+                    <id>nexus-group</id>
+                    <url>http://localhost:8081/repository/nexus-group/</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+        <profile>
+            <id>jdk-1.8</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+                <jdk>1.8</jdk>
+            </activation>
+            <properties>
+                <maven.compiler.source>1.8</maven.compiler.source>
+                <maven.compiler.target>1.8</maven.compiler.target>
+                <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+            </properties>
+        </profile>
+    </profiles><!--激活profile-->
+    <activeProfiles><!--将所有repositories以及pluginRepositories元素放到这个profile中，然后，使用<activeProfiles>元素自动激活该profile。这样，你就不用再为每个POM重复配置仓库-->
+        <activeProfile>nexus</activeProfile>
+        <activeProfile>jdk-1.8</activeProfile>
+    </activeProfiles>
