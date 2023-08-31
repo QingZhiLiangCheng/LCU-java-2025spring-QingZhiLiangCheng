@@ -1,0 +1,10 @@
+@startuml
+class Address {
+}
+class Customer {
+- Address address
+- List<Product> products
+}
+class Product {
+}
+@enduml
