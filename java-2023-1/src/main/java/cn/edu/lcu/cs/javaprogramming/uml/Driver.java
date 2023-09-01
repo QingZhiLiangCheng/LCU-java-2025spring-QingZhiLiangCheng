@@ -1,6 +1,14 @@
 package cn.edu.lcu.cs.javaprogramming.uml;
 
 public class Driver {
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     private String name;
 
     public void drive(Car car) {
