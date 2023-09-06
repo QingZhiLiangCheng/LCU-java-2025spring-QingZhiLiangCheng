@@ -44,6 +44,10 @@ class Whale {
 + void eat()
 + void reproduce()
 + void sleep()
++ void swim()
+}
+interface Flyable {
+~ void fly()
 }
 interface Swimmable {
 ~ void swim()
@@ -92,5 +96,8 @@ Swimmable <|.. Fish
 Vertebrate <|-- Fish
 Mammal <|-- Platypus
 Swimmable <|.. Swan
+Swimmable <|.. Whale
 Bird <|-- Swan
+Flyable <|.. Bat
+Flyable <|.. Swan
 @enduml
