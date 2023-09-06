@@ -1,0 +1,22 @@
+package cn.edu.lcu.cs.design_pattern.memento.game;
+
+import lombok.Getter;
+import lombok.Setter;
+
+/**
+ * 守护者对象, 保存游戏角色的状态
+ */
+@Getter
+@Setter
+public class Caretaker {
+
+    //如果只保存一次状态
+    private Memento memento;
+
+    //对GameRole 保存多次状态
+    //private List<Memento> mementos;
+
+    //对多个游戏角色保存多个状态
+    //private HashMap<String, List<Memento>> rolesMementos;
+
+}
