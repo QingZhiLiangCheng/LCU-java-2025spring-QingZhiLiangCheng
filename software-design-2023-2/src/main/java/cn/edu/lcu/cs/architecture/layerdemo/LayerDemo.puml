@@ -1,0 +1,14 @@
+@startuml
+
+package "ui" {
+[UserListDialog]
+[LoginDialog] --> [UserService]
+}
+
+package "service" {
+[UserService]
+[CourseService]
+[TeacherService]
+}
+
+@enduml

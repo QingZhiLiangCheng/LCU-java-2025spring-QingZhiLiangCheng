@@ -1,6 +1,6 @@
 package cn.edu.lcu.cs.design_pattern.simple_factory;
 
-import cn.edu.lcu.cs.designpattern.simple_factory.computer_factory.Computer;
+import cn.edu.lcu.cs.design_pattern.simple_factory.computer_factory.Computer;
 
 /**
  * @Description 用传统的new操作创建对象
