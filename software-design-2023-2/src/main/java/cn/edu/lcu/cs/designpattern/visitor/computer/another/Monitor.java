@@ -1,0 +1,23 @@
+package cn.edu.lcu.cs.designpattern.visitor.computer.another;
+
+public class Monitor implements ComputerPart {
+    private String name = "显示器";
+    private Double price = 1399.0;
+    private String description = "戴尔UltraSharpU2417H";
+
+    @Override
+    public void accept(Visitor visitor) {
+        System.out.println(visitor.getClass().getSimpleName() + "\t访问了\t" + this.getClass().getSimpleName());
+        visitor.visit(this);
+    }
+
+    @Override
+    public Double getPrice() {
+        return price;
+    }
+
+    @Override
+    public String getDescription() {
+        return description;
+    }
+}
