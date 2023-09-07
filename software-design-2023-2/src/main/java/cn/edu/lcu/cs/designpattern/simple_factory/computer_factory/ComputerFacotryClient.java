@@ -20,5 +20,9 @@ public class ComputerFacotryClient {
 
         Computer optiPlex3080 = factory.build("OptiPlex3080");
         System.out.println(optiPlex3080);
+
+        Computer xxx = factory.build("Xxx");
+        System.out.println("xxx = " + xxx);
+
     }
 }

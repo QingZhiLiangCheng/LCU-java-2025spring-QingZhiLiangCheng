@@ -26,6 +26,9 @@ public class ComputerFactory {
             case "xps":
                 computer = new XPS();
                 break;
+            case "xxx":
+                computer = new XxxDellComputer();
+                break;
         }
 
 //        switch (model) {
