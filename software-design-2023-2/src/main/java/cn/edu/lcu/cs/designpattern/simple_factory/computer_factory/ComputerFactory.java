@@ -15,19 +15,32 @@ public class ComputerFactory {
      */
     public Computer build(String model) {
         Computer computer = null;
-        switch (model) {
-            case "OptiPlex3080":
+        switch (model.toLowerCase()) {
+            case "optiplex3080":
                 computer = new OptiPlex3080();
+//                return new OptiPlex3080();
                 break;
-            case "XPS":
-                computer = new XPS();
-                break;
-            case "Vostro":
+            case "vostro":
                 computer = new Vostro();
                 break;
-            default:
+            case "xps":
+                computer = new XPS();
                 break;
         }
+
+//        switch (model) {
+//            case "OptiPlex3080":
+//                computer = new OptiPlex3080();
+//                break;
+//            case "XPS":
+//                computer = new XPS();
+//                break;
+//            case "Vostro":
+//                computer = new Vostro();
+//                break;
+//            default:
+//                break;
+//        }
         return computer;
     }
 }

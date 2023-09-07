@@ -22,11 +22,11 @@ public class Computer {
     private String os;
 
     public Computer(String cpu, String memory, String disk, String videoCard, String display, String os) {
-        this.cpu = cpu;
-        this.memory = memory;
-        this.disk = disk;
-        this.videoCard = videoCard;
-        this.display = display;
-        this.os = os;
+            this.cpu = cpu;
+            this.memory = memory;
+            this.disk = disk;
+            this.videoCard = videoCard;
+            this.display = display;
+            this.os = os;
+        }
     }
-}
