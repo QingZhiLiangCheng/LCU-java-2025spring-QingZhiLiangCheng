@@ -1,0 +1,53 @@
+@startuml
+class ProductFactoryClient {
++ {static} void main(String[])
+}
+class ProductC {
+- String name
+- Integer id
++ void print()
+}
+class ProductBFactory {
++ Product build()
+}
+class ProductA {
+- String name
+- Integer id
++ void print()
+}
+class ProductB {
+- String name
+- Integer id
++ void print()
+}
+interface ProductFactory {
+~ Product build()
+}
+class ProductD {
+- String name
+- Integer id
++ void print()
+}
+interface Product {
+~ void print()
+}
+class ProductAFactory {
++ Product build()
+}
+class ProductDFactory {
++ Product build()
+}
+class ProductCFactory {
++ Product build()
+}
+
+
+Product <|.. ProductC
+ProductFactory <|.. ProductBFactory
+Product <|.. ProductA
+Product <|.. ProductB
+Product <|.. ProductD
+ProductFactory <|.. ProductAFactory
+ProductFactory <|.. ProductDFactory
+ProductFactory <|.. ProductCFactory
+@enduml

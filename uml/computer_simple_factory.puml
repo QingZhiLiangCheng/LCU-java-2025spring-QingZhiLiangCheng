@@ -1,0 +1,45 @@
+@startuml
+class DellComputer {
+}
+class ComputerStaticFactory {
++ {static} Computer build(String)
+}
+class Computer {
+- String brand
+- String model
+- String board
+- String cpu
+- String memory
+- String disk
+- String videoCard
+- String display
+- String key
+- String mouse
+- String audio
+- String os
+}
+class ComputerFactory {
++ Computer build(String)
+}
+class XxxDellComputer {
+}
+class XPS {
+}
+class Vostro {
+}
+class OptiPlex3080 {
+}
+class ComputerFacotryClient {
++ {static} void main(String[])
+}
+class ComputerStaticFacotryClient {
++ {static} void main(String[])
+}
+
+
+Computer <|-- DellComputer
+DellComputer <|-- XxxDellComputer
+DellComputer <|-- XPS
+DellComputer <|-- Vostro
+DellComputer <|-- OptiPlex3080
+@enduml
