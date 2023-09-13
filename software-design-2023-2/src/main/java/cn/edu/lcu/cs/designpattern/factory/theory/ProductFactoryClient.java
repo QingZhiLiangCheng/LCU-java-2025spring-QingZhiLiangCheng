@@ -16,5 +16,10 @@ public class ProductFactoryClient {
         factory = new ProductBFactory();
         Product productB = factory.build();
         productB.print();
+
+        // 创建产品D
+        factory = new ProductDFactory();
+        Product product = factory.build();
+        System.out.println("product = " + product);
     }
 }
