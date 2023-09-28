@@ -1,36 +1,56 @@
 package cn.edu.lcu.cs.designpattern.singleton;
 
-import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.HashSet;
+import java.util.Set;
 
-/**
- * TODO 这里是文档说明，如果未提供，把本行删除。
- *
- * @author ling
- * @date 2023/9/26 23:09
- */
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 class LazySingletonTest {
-
-    @RepeatedTest(5)
-    void getInstance() {
-        System.out.println(LazySingleton.getInstance());
-    }
-
+    /**
+     * 多线程测试：开多个线程，同时调用，测试是否线程安全。
+     * 懒汉单例模式，线程不安全，可能会产生不同的实例。
+     */
     @Test
-    void getInstanceMultithread() {
-        int count = 5;
-        for (int i = 0; i < count; i++) {
-            new Thread(() -> System.out.println(LazySingleton.getInstance())).start();
+    void testMultithread() {
+        // 循环多次，每次循环开一个线程
+        for (int i = 0; i < 10; i++) {
+            // 创建匿名内部类线程，实例化，并启动
+            new Thread() {
+                public void run() {
+                    // 获取单例模式的实例并打印到控制台
+                    System.out.println(LazySingleton.getInstance());
+                }
+            }.start();
         }
     }
 
-    public static void main(String[] args) {
+    @Test
+    void testMultithreadWithSet() {
+        Set<LazySingleton> singletons = new HashSet<>();
+        for (int i = 0; i < 10; i++) {
+            new Thread() {
+                public void run() {
+                    singletons.add(LazySingleton.getInstance());
+                }
+            }.start();
+        }
+        // 测试会失败，因为下边测试行运行时线程还没有执行，线程池是空的
+        // assertTrue(singletons.size() > 1);
 
-        int count = 10;
-        for (int i = 0; i < count; i++) {
-            new Thread(() -> System.out.println(LazySingleton.getInstance())).start();
+        // 测试成功
+        assertTrue(singletons.isEmpty());
+    }
+
+    @Test
+    void equals() {
+        LazySingleton instance1 = LazySingleton.getInstance();
+        LazySingleton instance2 = LazySingleton.getInstance();
+        if (instance1 == instance2) {
+            System.out.println("两个引用指向同一个实例");
+        } else {
+            System.out.println("两个实例不同");
         }
     }
 
