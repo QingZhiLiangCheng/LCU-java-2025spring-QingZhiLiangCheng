@@ -1,0 +1,55 @@
+@startuml
+class PlainTextLogFormatter {
++ String format(Logger.LoggerLevel,String)
+}
+class Base64EncryptLogFormatter {
++ String format(Logger.LoggerLevel,String)
+}
+interface LogMsgFormatter {
+~ String format(Logger.LoggerLevel,String)
+}
+class FileLogger {
+- String fileName
+- LogMsgFormatter formatter
+- void init()
++ void error(String)
++ void info(String)
++ void warn(String)
++ void debug(String)
++ void log(LoggerLevel,String)
+}
+class HtmlTextLogFormatter {
++ String format(Logger.LoggerLevel,String)
+}
+interface Logger {
+~ void error(String)
+~ void warn(String)
+~ void info(String)
+~ void debug(String)
+~ void log(LoggerLevel,String)
+}
+enum LoggerLevel {
++  ERROR
++  WARN
++  INFO
++  DEBUG
+}
+class Client {
++ {static} void main(String[])
+}
+class ConsoleLogger {
+- LogMsgFormatter formatter
++ void error(String)
++ void info(String)
++ void warn(String)
++ void debug(String)
++ void log(LoggerLevel,String)
+}
+
+
+LogMsgFormatter <|.. PlainTextLogFormatter
+LogMsgFormatter <|.. Base64EncryptLogFormatter
+Logger <|.. FileLogger
+LogMsgFormatter <|.. HtmlTextLogFormatter
+Logger <|.. ConsoleLogger
+@enduml
