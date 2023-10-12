@@ -13,8 +13,8 @@ public class Client {
 
         // 初始化容器
         Container container = new Container();
-        container.add(new Person("zhangsan"));
         container.add(new Person("lisi"));
+        container.add(new Person("zhangsan"));
         container.add(new Person("wangwu"));
 
         // 获取容器的迭代器对象
