@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<config>
+    <className>cn.edu.lcu.cs.designpattern.bridge.pen.Blue</className>
+    <className>cn.edu.lcu.cs.designpattern.bridge.pen.SmallPen</className>
+</config>
