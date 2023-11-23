@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button type="button" onclick="alert('击中了')">按钮1</button>
+	</body>
+	<script type="text/javascript">
+		var btn = document.querySelector("button");
+		btn.onclick = function () {
+			alert('点击1');
+		}
+		btn.onclick = function () {
+			alert('点击2');
+		}
+		
+		btn.addEventListener('click', click1);
+		btn.addEventListener('click', click2);
+		
+		function click1 () {
+			alert("click1");
+		}
+		function click2 () {
+			alert("click2");
+		}
+	</script>
+</html>
