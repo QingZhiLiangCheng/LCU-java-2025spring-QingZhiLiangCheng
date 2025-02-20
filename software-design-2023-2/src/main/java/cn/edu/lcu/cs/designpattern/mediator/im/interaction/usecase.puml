@@ -1,7 +1,0 @@
-@startuml
-'https://plantuml.com/use-case-diagram’
-
-Customer -> (send message)
-Customer -> (receive message)
-
-@enduml

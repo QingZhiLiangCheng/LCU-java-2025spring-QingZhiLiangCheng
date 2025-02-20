@@ -1,5 +1,0 @@
-package cn.edu.lcu.cs.designpattern.abstract_factory.shape;
-
-public interface Color {
-   void fill();
-}
