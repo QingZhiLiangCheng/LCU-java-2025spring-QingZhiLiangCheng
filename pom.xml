@@ -11,6 +11,7 @@
     <url>http://maven.apache.org</url>
     <modules>
         <module>java-2025</module>
+        <module>my-code</module>
     </modules>
     <build>
         <plugins>
