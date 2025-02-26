@@ -32,13 +32,26 @@ public class StatisticScore {
             if (score < 0 || score > 100) {
                 continue;
             }
-            if (score >= 0 && score < 60) {
+            if (score < 60) {
                 gradeE++;
-            } else if (score >= 60 && score < 70) {
+            } else if (score < 70) {
                 gradeD++;
+            } else if (score < 80) {
+                gradeC++;
+            } else if (score < 90) {
+                gradeB++;
+            } else {
+                gradeA++;
             }
+
+            // TODO：用Switch实现
         }
 
+        System.out.println("gradeA = " + gradeA);
+        System.out.println("gradeB = " + gradeB);
+        System.out.println("gradeC = " + gradeC);
+        System.out.println("gradeD = " + gradeD);
+        System.out.println("gradeE = " + gradeE);
 //        System.out.println(score);
     }
 }
