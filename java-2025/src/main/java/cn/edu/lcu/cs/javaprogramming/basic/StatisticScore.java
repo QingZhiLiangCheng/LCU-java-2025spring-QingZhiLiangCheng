@@ -32,9 +32,8 @@ public class StatisticScore {
             if (score < 0 || score > 100) {
                 continue;
             }
-            if (score < 60) {
-                gradeE++;
-            } else if (score < 70) {
+            if (score < 60) gradeE++;
+            else if (score < 70) {
                 gradeD++;
             } else if (score < 80) {
                 gradeC++;
