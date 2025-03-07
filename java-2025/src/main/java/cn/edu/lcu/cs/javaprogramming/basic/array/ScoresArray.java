@@ -45,11 +45,21 @@ public class ScoresArray {
      */
     public static int[] generateScores(int length) {
         // 创建length个元素的整数数组
+        int[] scores = new int[length];
 
         // 遍历这个数组，依次用生成的随机数为数组元素赋值
+        for (int i = 0; i < scores.length; i++) {
+            scores[i] = generateScore();
+        }
+
+/*
+        for (int score : scores) {
+            score = generateScore();
+        }
+*/
 
         // 返回成绩数组
-        return null;
+        return scores;
     }
 
     /**

@@ -46,7 +46,7 @@ public class StatisticScore {
             }
 */
 
-            // TODO：用Switch实现
+            // 用Switch实现
             switch (score / 10) {
                 case 10, 9 -> gradeA++;
                 case 8 -> gradeB++;

@@ -43,7 +43,7 @@ public class StatisticScore {
                 gradeA++;
             }
 
-            // TODO：用Switch实现
+            // 用Switch实现
         }
 
         System.out.println("gradeA = " + gradeA);
