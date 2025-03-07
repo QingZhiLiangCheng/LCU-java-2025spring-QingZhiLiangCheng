@@ -29,6 +29,12 @@ public class ScoresArray {
 
         // 输出打印
 
+
+        // 测试generateScore方法
+     /*   for (int i = 0; i < 100; i++) {
+            System.out.println(generateScore());
+        }*/
+
     }
 
     /**
@@ -54,6 +60,7 @@ public class ScoresArray {
      */
     public static int generateScore() {
         Random random = new Random();
+        // [0, bound)
         int score = random.nextInt(100 + 1);
         return score;
     }
