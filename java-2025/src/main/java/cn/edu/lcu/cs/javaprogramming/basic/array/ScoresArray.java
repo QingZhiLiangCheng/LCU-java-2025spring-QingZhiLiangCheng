@@ -12,8 +12,18 @@ public class ScoresArray {
 
     public static void main(String[] args) {
         // 声明字符串数组并赋值，存储5、6班的班级名称
+        String[] classNames = {"2023级5班", "2023级6班"};
+        String classes2[];  // C类型的数组声明，Java中不建议这样声明。
 
         // 遍历打印各班的名称
+        for (int i = 0; i < classNames.length; i++) {
+            System.out.printf("classNames[%d] = %s%n", i, classNames[i]);
+//            System.out.println(classNames[i]);
+        }
+        // className.for
+        for (String className : classNames) {
+            System.out.println(className);
+        }
 
         // 获取随机生成的成绩数组
 
