@@ -12,14 +12,17 @@ public class TwoDimentionScoresArray {
     public static void main(String[] args) {
         // 二维数组每行元素数量可以不同，与C语言区别比较大
         // 声明2行的二维数组，列数不确定
+        int[][] scores = new int[2][];
 
-        // 调用方法，随机生成41人的成绩，返回一维整型数组，给二维数组的首行赋值
+        // 调用方法，随机生成40人的成绩，返回一维整型数组，给二维数组的首行赋值
         //ScoresArray.generateScores(41);
+        scores[0] = ScoresArray.generateScores(40);
 
-        // 调用方法，随机生成43人的成绩，返回一维整型数组，给二维数组的第2行赋值
+        // 调用方法，随机生成41人的成绩，返回一维整型数组，给二维数组的第2行赋值
+        scores[1] = ScoresArray.generateScores(41);
 
         // 打印二维数组
-        //print(scores);
+        print(scores);
     }
 
 
