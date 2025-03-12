@@ -21,7 +21,11 @@ class ScoresArrayTest {
     @Test
     void generateScores() {
         int[] scores = ScoresArray.generateScores(41);
-        // TODO Arrays打印
-//        System.out.println(scores);
+        // Arrays工具类转化数组为字符串
+//        System.out.println(Arrays.toString(scores));
+        for (int score : scores) {
+//            System.out.print(score + ", ");
+            assertTrue(score <= 100 && score >= 0);
+        }
     }
 }
