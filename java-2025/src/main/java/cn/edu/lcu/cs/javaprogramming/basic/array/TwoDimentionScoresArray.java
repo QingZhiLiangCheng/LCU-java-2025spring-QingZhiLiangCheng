@@ -35,7 +35,12 @@ public class TwoDimentionScoresArray {
      */
     private static void print(int[][] scores) {
         // 代码填空
-
+        for (int[] row : scores) {
+            for (int score : row) {
+                System.out.print(score + "\t");
+            }
+            System.out.println();
+        }
     }
 
 }
