@@ -2,6 +2,7 @@ package cn.edu.lcu.cs.javaprogramming.oop.animal;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.Date;
 
 /**
  * <h3>对猫建模，封装猫的信息</h3>
@@ -22,6 +23,44 @@ import java.time.temporal.ChronoUnit;
  * @Author ling
  */
 public class Cat {
+    private int age;
+    private String name;
+    private String gender;
+//    private Date birthdate;
+    private LocalDate birthdate;
 
+    public LocalDate getBirthdate() {
+        return birthdate;
+    }
+
+    public void setBirthdate(LocalDate birthdate) {
+        this.birthdate = birthdate;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getGender() {
+        return this.gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    // TODO 添加构造方法
 
 }
