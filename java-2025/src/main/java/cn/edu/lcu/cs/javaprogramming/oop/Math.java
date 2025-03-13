@@ -73,4 +73,47 @@ public class Math {
 
         return result;
     }
+
+    // TODO 演示递归方法
+
+    /**
+     * 计算给定整数的阶乘。
+     *
+     * <p>阶乘是指从 1 乘到该整数的所有正整数的乘积，通常表示为 n!。</p>
+     *
+     * @param n 要计算阶乘的非负整数
+     * @return 返回 n 的阶乘值。如果 n 为 0，返回 1。
+     * @throws IllegalArgumentException 如果 n 为负数
+     */
+    public static int factorial(int n) {
+        if (n < 0) {
+            throw new IllegalArgumentException("n 必须是非负整数");
+        }
+        int result = 1;
+
+        for (int i = 1; i <= n; i++) {
+            result *= i;
+        }
+
+        return result;
+    }
+
+    /**
+     * 计算给定整数的阶乘，使用递归技术实现。
+     *
+     * <p>阶乘是指从 1 乘到该整数的所有正整数的乘积，通常表示为 n!。</p>
+     *
+     * @param n 要计算阶乘的非负整数
+     * @return 返回 n 的阶乘值。如果 n 为 0，返回 1。
+     * @throws IllegalArgumentException 如果 n 为负数
+     */
+    public static int factorialRecursive(int n) {
+        if (n < 0) {
+            throw new IllegalArgumentException("n 必须是非负整数");
+        }
+        if (n == 0 || n == 1) {
+            return 1; // 0! = 1
+        }
+        return n * factorialRecursive(n - 1); // n! = n * (n-1)!
+    }
 }
