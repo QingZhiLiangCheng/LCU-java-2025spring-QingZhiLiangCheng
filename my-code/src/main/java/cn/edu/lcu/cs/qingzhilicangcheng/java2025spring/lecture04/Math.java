@@ -1,17 +1,5 @@
-package cn.edu.lcu.cs.javaprogramming.oop;
+package cn.edu.lcu.cs.qingzhilicangcheng.java2025spring.lecture04;
 
-/**
- * <p>数学工具类，演示：</p>
- * <ol>
- * <li>方法重载</li>
- * <li>方法签名</li>
- * <li>类型自动转换</li>
- * <li>可变数量的参数（参数个数在编码时未知）</li>
- * </ol>
- * 2022/3/1 23:52
- *
- * @Author ling
- */
 public class Math {
 
     /**
