@@ -41,13 +41,13 @@ public class Cat {
 
     }
 
-    public Cat(String name, String gender) {
+    public Cat(String gender, String name) {
         this.gender = gender;
         this.name = name;
     }
 
     /**
-     * ctrl alt shift 左右方向
+     * ctrl alt shift 左右方向，移动参数的位置。
      * @param age
      * @param birthdate
      * @param gender
@@ -62,6 +62,15 @@ public class Cat {
 
     public Cat(int age) {
         this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "Cat{" +
+                "age=" + age +
+                ", name='" + name + '\'' +
+                ", gender='" + gender + '\'' +
+                '}';
     }
 
     public LocalDate getBirthdate() {
@@ -96,4 +105,40 @@ public class Cat {
     public void setGender(String gender) {
         this.gender = gender;
     }
+
+
+    public void walk() {
+        System.out.println("猫当然走猫步");
+    }
+
+    public void run() {
+        System.out.println("猫跑得飞快");
+    }
+
+    public void climbTree() {
+        System.out.println("猫爬树666");
+    }
+
+    public void eat() {
+        System.out.println("猫喜欢吃鱼");
+    }
+
+    public void breath() {
+        System.out.println("猫用肺呼吸");
+    }
+
+    /**
+     * 生殖
+     */
+    public void reproduce() {
+        System.out.println("猫是猫它妈胎生的");
+    }
+
+    /**
+     * 哺育后代
+     */
+    public void feed() {
+        System.out.println("猫妈妈用乳汁哺育宝宝");
+    }
+
 }

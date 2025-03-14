@@ -16,6 +16,12 @@ class CatTest {
         // 编译器自动添加了默认的构造方法
         Cat cat = new Cat();
         System.out.println("cat = " + cat);
+
+        String name = "大桔";
+        String gender = "女";
+        Cat juCat = new Cat(gender, name);
+        System.out.println("juCat = " + juCat);
+        System.out.println("juCat.toString() = " + juCat.toString());
     }
 
 }

@@ -51,8 +51,6 @@ class MathTest {
         assertEquals(x + y, Math.sum(x, y));
     }
 
-    // TODO 演示参数化测试
-
     /**
      * 测试阶乘方法的参数化测试
      *
