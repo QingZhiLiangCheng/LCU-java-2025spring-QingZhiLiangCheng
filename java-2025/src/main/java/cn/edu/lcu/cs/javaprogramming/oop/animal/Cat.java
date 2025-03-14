@@ -26,8 +26,43 @@ public class Cat {
     private int age;
     private String name;
     private String gender;
-//    private Date birthdate;
+    //    private Date birthdate;
     private LocalDate birthdate;
+
+    public Cat(String name) {
+        this.name = name;
+    }
+
+    /**
+     * 默认的构造方法，编译器一般会自动添加。
+     * 但是，如果类中定义了至少一个带参数的构造方法，默认构造方法就不会自动添加。
+     */
+    public Cat() {
+
+    }
+
+    public Cat(String name, String gender) {
+        this.gender = gender;
+        this.name = name;
+    }
+
+    /**
+     * ctrl alt shift 左右方向
+     * @param age
+     * @param birthdate
+     * @param gender
+     * @param name
+     */
+    public Cat(String name, int age, String gender, LocalDate birthdate) {
+        this.age = age;
+        this.birthdate = birthdate;
+        this.gender = gender;
+        this.name = name;
+    }
+
+    public Cat(int age) {
+        this.age = age;
+    }
 
     public LocalDate getBirthdate() {
         return birthdate;
@@ -53,6 +88,7 @@ public class Cat {
         this.name = name;
     }
 
+
     public String getGender() {
         return this.gender;
     }
@@ -60,7 +96,4 @@ public class Cat {
     public void setGender(String gender) {
         this.gender = gender;
     }
-
-    // TODO 添加构造方法
-
 }
