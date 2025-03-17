@@ -33,6 +33,11 @@
             <version>5.8.2</version> <!-- 请根据需要选择合适的版本 -->
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.26</version>
+        </dependency>
     </dependencies>
 
     <distributionManagement>

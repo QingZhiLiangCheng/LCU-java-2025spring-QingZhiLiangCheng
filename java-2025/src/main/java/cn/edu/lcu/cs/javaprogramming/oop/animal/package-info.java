@@ -19,7 +19,7 @@
  * 本例涉及的一些英语单词如下：
  * <p>
  * <ul>
- *   <li>行走walk，飞翔fly，游泳swim，物种名称species name，进食eat，呼吸breath，生殖reproduce，哺育后代feed</li>
+ *   <li>行走walk，飞翔fly，游泳swim，物种名称species name，进食eat，呼吸breath，生殖reproduce，哺育照顾后代care For Offspring</li>
  *   <li>哺乳动物mammal，恒温动物endotherm，蝙蝠bat，猴子monkey，鲸鱼whale，天鹅swan，企鹅penguin，鲨鱼shark，脊椎动物vertebrate</li>
  * </ul>
  */

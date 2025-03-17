@@ -1,0 +1,98 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class Bat {
+  + reproduce(): void
+  + fly(): void
+  + eat(): void
+  + sleep(): void
+}
+class Bird {
+  + reproduce(): void
+  + walk(): void
+}
+class Endotherm {
+  + breath(): void
+}
+class Fish {
+  + breath(): void
+  + youyong(): void
+}
+interface Flyable << interface >> {
+  + fly(): void
+  + print(): void
+}
+class Mammal {
+  + feed(): void
+}
+class Monkey {
+  + sleep(): void
+  + walk(): void
+  + reproduce(): void
+  + eat(): void
+}
+class Penguin {
+  + feed(): void
+  + sleep(): void
+  + eat(): void
+  + swim(): void
+}
+class Platypus {
+  + sleep(): void
+  + reproduce(): void
+  + eat(): void
+  + swim(): void
+}
+class Swan {
+  + eat(): void
+  + sleep(): void
+  + swim(): void
+  + feed(): void
+  + fly(): void
+}
+interface Swimmable << interface >> {
+  + swim(): void
+}
+class Vertebrate {
+   name: String
+   gender: String
+   color: String
+   weight: double
+   temperature: String
+   species: String
+   birthday: Date
+  + toString(): String
+  + feed(): void
+  + reproduce(): void
+  + sleep(): void
+  + eat(): void
+  + breath(): void
+}
+class Whale {
+  + swim(): void
+  + sleep(): void
+  + reproduce(): void
+  + eat(): void
+}
+
+Bat         -[#008200,dashed]-^  Flyable    
+Bat         -[#000082,plain]-^  Mammal     
+Bird        -[#000082,plain]-^  Endotherm  
+Endotherm   -[#000082,plain]-^  Vertebrate 
+Fish        -[#008200,dashed]-^  Swimmable  
+Fish        -[#000082,plain]-^  Vertebrate 
+Mammal      -[#000082,plain]-^  Endotherm  
+Monkey      -[#000082,plain]-^  Mammal     
+Penguin     -[#000082,plain]-^  Bird       
+Penguin     -[#008200,dashed]-^  Swimmable  
+Platypus    -[#000082,plain]-^  Mammal     
+Platypus    -[#008200,dashed]-^  Swimmable  
+Swan        -[#000082,plain]-^  Bird       
+Swan        -[#008200,dashed]-^  Flyable    
+Swan        -[#008200,dashed]-^  Swimmable  
+Whale       -[#000082,plain]-^  Mammal     
+Whale       -[#008200,dashed]-^  Swimmable  
+@enduml
