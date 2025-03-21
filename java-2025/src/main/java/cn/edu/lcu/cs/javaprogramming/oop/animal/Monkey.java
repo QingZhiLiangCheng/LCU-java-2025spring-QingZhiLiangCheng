@@ -1,10 +1,19 @@
 package cn.edu.lcu.cs.javaprogramming.oop.animal;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 import java.time.LocalDate;
 
 /**
- * 传统的、经典的猴子类定义，拥有显式的getter与setter。
+ * 猴子类，使用Lombok进行修饰。
  */
+@Getter
+@Setter
+@ToString
+//@NoArgsConstructor
 public class Monkey {
     // 属性
     private String name;          // 名字
@@ -15,6 +24,24 @@ public class Monkey {
     private String gender;        // 性别
     private double height;        // 身高
     private String temperatureType; // 体温类型（冷血或温血）
+
+
+    public Monkey() {
+        this.species = "猴子";
+        this.temperatureType = "温血";
+    }
+
+    // 构造函数
+    public Monkey(String name, LocalDate birthDate, String color,
+                  double weight, String gender, double height) {
+        this();
+        this.name = name;
+        this.birthDate = birthDate;
+        this.color = color;
+        this.weight = weight;
+        this.gender = gender;
+        this.height = height;
+    }
 
     public int getAge() {
         int age = 0;

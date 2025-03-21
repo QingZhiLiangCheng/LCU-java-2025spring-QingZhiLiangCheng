@@ -16,6 +16,7 @@ class MonkeyTest {
     void walk() {
         Monkey monkey = new Monkey();
         // 给name赋值
+        monkey.setName("大圣");
         monkey.walk();
     }
 
