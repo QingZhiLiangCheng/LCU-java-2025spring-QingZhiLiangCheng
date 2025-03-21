@@ -25,23 +25,23 @@ public class Monkey extends Mammal {
     public Monkey(String name, LocalDate birthDate, String color,
                   double weight, String gender, double height) {
         this();
-        this.name = name;
-        this.birthDate = birthDate;
-        this.color = color;
-        this.weight = weight;
-        this.gender = gender;
-        this.height = height;
+        setName(name);
+        setBirthDate(birthDate);
+        setColor(color);
+        setWeight(weight);
+        setGender(gender);
+        setHeight(height);
     }
 
 
     // 行为：猴子行走
     public void walk() {
-        System.out.println(name + "通常四足行走，偶尔也会双足行走。");
+        System.out.println(getName() + "通常四足行走，偶尔也会双足行走。");
     }
 
     // 行为：猴子爬树
     public void climb() {
-        System.out.println(name + " is climbing a tree.");
+        System.out.println(getName() + " is climbing a tree.");
     }
 
 }

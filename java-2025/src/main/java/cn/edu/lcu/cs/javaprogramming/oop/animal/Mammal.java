@@ -7,14 +7,14 @@ import java.time.LocalDate;
 @Data
 public class Mammal {
     // 属性
-    protected String name;          // 名字
-    protected LocalDate birthDate;  // 出生日期
-    protected String species;       // 种类
-    protected String color;         // 颜色
-    protected double weight;        // 体重
-    protected String gender;        // 性别
-    protected double height;        // 身高
-    protected String temperatureType; // 体温类型（冷血或温血）
+    private String name;          // 名字
+    private LocalDate birthDate;  // 出生日期
+    private String species;       // 种类
+    private String color;         // 颜色
+    private double weight;        // 体重
+    private String gender;        // 性别
+    private double height;        // 身高
+    private String temperatureType; // 体温类型（冷血或温血）
 
     public Mammal() {
         this.species = "猴子";
