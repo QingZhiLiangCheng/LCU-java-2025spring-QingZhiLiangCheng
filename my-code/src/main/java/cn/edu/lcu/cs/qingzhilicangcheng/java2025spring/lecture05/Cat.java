@@ -1,4 +1,4 @@
-package cn.edu.lcu.cs.javaprogramming.oop.animals;
+package cn.edu.lcu.cs.qingzhilicangcheng.java2025spring.lecture05;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
