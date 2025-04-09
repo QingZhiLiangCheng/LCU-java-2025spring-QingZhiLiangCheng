@@ -46,8 +46,17 @@ class EmplyeeComparatorTest {
 
     @Test
     void compareAgeAscendant() {
-        // TODO 使用现成的AgeAscendComparator类，对两个雇员的年龄进行正序比较。
-
+        // 使用现成的AgeAscendComparator类，对两个雇员的年龄进行正序比较。
+        AgeAscendComparator comparator = new AgeAscendComparator();
+        int result = comparator.compare(zhangsan, lisi);
+        if (result < 0) {
+            System.out.printf("%s年龄比%s年龄小%n", zhangsan.getName(), lisi.getName());
+        } else if (result > 0) {
+            System.out.printf("%s年龄比%s年龄大%n", zhangsan.getName(), lisi.getName());
+        } else {
+            System.out.printf("%s年龄与%s一样大%n", zhangsan.getName(), lisi.getName());
+        }
+//        System.out.println("result = " + result);
     }
 
     @Test
