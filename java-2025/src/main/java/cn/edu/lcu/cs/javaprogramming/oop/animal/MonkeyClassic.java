@@ -1,6 +1,7 @@
 package cn.edu.lcu.cs.javaprogramming.oop.animal;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 /**
  * 传统的、经典的猴子类定义，拥有显式的getter与setter。
@@ -44,7 +45,12 @@ public class MonkeyClassic {
 
     public int getAge() {
         int age = 0;
-        // TODO 根据出生日期与当前时间，计算年龄，算法暂时省略。
+        // 根据出生日期与当前时间，计算年龄，算法暂时省略。
+        if (birthDate!=null) {
+            LocalDate now = LocalDate.now();
+            Period period = Period.between(birthDate, now);
+            age = period.getYears();
+        }
 
         return age;
     }

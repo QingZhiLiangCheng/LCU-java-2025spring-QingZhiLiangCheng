@@ -74,8 +74,6 @@ public class Math {
         return result;
     }
 
-    // TODO 演示递归方法
-
     /**
      * 计算给定整数的阶乘。
      *
