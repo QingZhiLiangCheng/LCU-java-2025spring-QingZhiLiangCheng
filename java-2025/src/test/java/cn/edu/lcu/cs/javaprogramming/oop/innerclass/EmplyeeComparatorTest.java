@@ -61,14 +61,39 @@ class EmplyeeComparatorTest {
 
     @Test
     void compareAgeDescendant() {
-        // TODO 使用具名内部类，对两个雇员的年龄进行逆序比较。
+        class AgeDescendantComparator implements Comparator {
+            // 使用具名内部类，对两个雇员的年龄进行逆序比较。
 
+            @Override
+            public int compare(Employee e1, Employee e2) {
+                return e2.getAge() - e1.getAge();
+            }
+        }
+
+        Comparator comparator = new AgeDescendantComparator();
+
+        int result = comparator.compare(zhangsan, lisi);
+        if (result > 0) {
+            System.out.printf("%s年龄比%s年龄小%n", zhangsan.getName(), lisi.getName());
+        } else if (result < 0) {
+            System.out.printf("%s年龄比%s年龄大%n", zhangsan.getName(), lisi.getName());
+        } else {
+            System.out.printf("%s年龄与%s一样大%n", zhangsan.getName(), lisi.getName());
+        }
     }
 
     @Test
     void compareSalary() {
-        // TODO 使用匿名内部类，对两个雇员的工资进行比较。
+        // 使用匿名内部类，对两个雇员的工资进行比较。
+        Comparator comparator = new Comparator() {
+            @Override
+            public int compare(Employee e1, Employee e2) {
+                return (int) (e1.getSalary() - e2.getSalary());
+            }
+        };
 
+        int result = comparator.compare(zhangsan, lisi);
+        System.out.println("result = " + result);
     }
 
 
