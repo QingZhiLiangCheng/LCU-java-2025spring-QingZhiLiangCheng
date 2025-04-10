@@ -118,19 +118,19 @@ class MathTest {
 
     @ParameterizedTest
     @CsvSource({
-        "0, 1",
-        "1, 1",
-        "2, 2",
-        "3, 6",
-        "4, 24",
-        "5, 120",
-        "6, 720",
-        "7, 5040",
-        "8, 40320",
-        "9, 362880",
-        "10, 3628800",
-        "11, 39916800",
-        "12, 479001600"
+            "0, 1",
+            "1, 1",
+            "2, 2",
+            "3, 6",
+            "4, 24",
+            "5, 120",
+            "6, 720",
+            "7, 5040",
+            "8, 40320",
+            "9, 362880",
+            "10, 3628800",
+            "11, 39916800",
+            "12, 479001600"
     })
     void testFactorialRecursivePerformance(int n, long expected) {
         // 记录开始时间
@@ -143,7 +143,7 @@ class MathTest {
         long endTime = System.nanoTime();
 
         // 计算运行时间
-        long duration = (endTime - startTime) ;
+        long duration = (endTime - startTime);
 
         // 验证结果
         assertEquals(expected, result);
@@ -154,19 +154,19 @@ class MathTest {
 
     @ParameterizedTest
     @CsvSource({
-        "0, 1",
-        "1, 1",
-        "2, 2",
-        "3, 6",
-        "4, 24",
-        "5, 120",
-        "6, 720",
-        "7, 5040",
-        "8, 40320",
-        "9, 362880",
-        "10, 3628800",
-        "11, 39916800",
-        "12, 479001600"
+            "0, 1",
+            "1, 1",
+            "2, 2",
+            "3, 6",
+            "4, 24",
+            "5, 120",
+            "6, 720",
+            "7, 5040",
+            "8, 40320",
+            "9, 362880",
+            "10, 3628800",
+            "11, 39916800",
+            "12, 479001600"
     })
     void testFactorialPerformance(int n, long expected) {
         // 记录开始时间
@@ -179,7 +179,7 @@ class MathTest {
         long endTime = System.nanoTime();
 
         // 计算运行时间
-        long duration = (endTime - startTime) ;
+        long duration = (endTime - startTime);
 
         // 验证结果
         assertEquals(expected, result);

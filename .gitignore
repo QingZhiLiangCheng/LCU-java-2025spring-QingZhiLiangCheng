@@ -57,3 +57,5 @@ target/
 Thumbs.db
 Servers
 .metadata
+.arts
+.jlsp

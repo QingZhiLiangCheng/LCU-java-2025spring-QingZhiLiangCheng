@@ -23,12 +23,18 @@ public class StatisticScore {
         int gradeD = 0;
         int gradeE = 0;
 
-        // 41.for
-        for (int i = 0; i < 4; i++) {
-            int score = scanner.nextInt();
-            // 对成绩做判断，给5个等级的变量赋值
+        int length = 4;
+        System.out.printf("请输入%d个成绩%n", length);
 
-            // 如果成绩非法，直接转下一轮循环
+        // length.for
+        for (int i = 0; i < length; i++) {
+            // 从控制台读入一个整数成绩
+            int score = scanner.nextInt();
+            // TODO 如果输入的整数格式不正确，直接转下一轮循环
+
+            // 如果整数格式对，则对成绩做判断，给5个等级的变量赋值
+
+            // 如果不是[0, 100]之间的成绩，直接转下一轮循环
             // (score < 0 || score > 100).if
             if (score < 0 || score > 100) {
                 continue;

@@ -1,7 +1,6 @@
 package cn.edu.lcu.cs.javaprogramming.oop.animal;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -13,24 +12,23 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @ToString
-//@NoArgsConstructor
 public class Monkey extends Mammal {
-
 
     public Monkey() {
         super();
+        this.setSpecies("猴子");
     }
 
     // 构造函数
     public Monkey(String name, LocalDate birthDate, String color,
                   double weight, String gender, double height) {
         this();
-        setName(name);
-        setBirthDate(birthDate);
-        setColor(color);
-        setWeight(weight);
-        setGender(gender);
-        setHeight(height);
+        this.setName(name);
+        this.setBirthDate(birthDate);
+        this.setColor(color);
+        this.setWeight(weight);
+        this.setGender(gender);
+        this.setHeight(height);
     }
 
 
