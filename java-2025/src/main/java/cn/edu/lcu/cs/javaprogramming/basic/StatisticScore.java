@@ -27,10 +27,21 @@ public class StatisticScore {
         System.out.printf("请输入%d个成绩%n", length);
 
         // length.for
-        for (int i = 0; i < length; i++) {
+        int i = 0;
+        while (i < length) {
             // 从控制台读入一个整数成绩
-            int score = scanner.nextInt();
-            // TODO 如果输入的整数格式不正确，直接转下一轮循环
+            int score = 0;
+            try {
+                score = scanner.nextInt();
+            } catch (Exception e) {
+//                e.printStackTrace();
+                // 输出一个友好的错误提示。
+                System.out.println("您输入了一个格式错误的整数");
+                // 如果输入的整数格式不正确，直接转下一轮循环
+                // 跳过当前错误的输入
+                scanner.next();
+                continue;
+            }
 
             // 如果整数格式对，则对成绩做判断，给5个等级的变量赋值
 
@@ -79,6 +90,7 @@ public class StatisticScore {
                     gradeE++;
             }
 */
+            i++;
         }
 
         System.out.println("gradeA = " + gradeA);
