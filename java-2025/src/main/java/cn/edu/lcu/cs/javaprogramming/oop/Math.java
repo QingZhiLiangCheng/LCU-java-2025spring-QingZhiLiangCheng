@@ -85,12 +85,18 @@ public class Math {
      */
     public static int factorial(int n) {
         if (n < 0) {
-            throw new IllegalArgumentException("n 必须是非负整数");
+            throw new IllegalArgumentException("阶乘的参数n必须是非负整数");
         }
         int result = 1;
 
         for (int i = 1; i <= n; i++) {
             result *= i;
+            // 判断结果是否溢出
+            if (result < 0) {
+                // 如果结果溢出，抛出一个异常。
+                throw new RuntimeException(n + "的阶乘溢出于第" + i + "次相乘。");
+                // 一旦抛出异常，程序中断执行，返回上层主调方法。
+            }
         }
 
         return result;

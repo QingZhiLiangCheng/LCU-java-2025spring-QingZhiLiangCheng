@@ -34,13 +34,22 @@ public class StatisticScore {
             try {
                 score = scanner.nextInt();
             } catch (Exception e) {
-//                e.printStackTrace();
+                // 捕获异常之后，要么打印栈追踪信息，要么对异常进行容错处理，严格禁止啥也不做！！！
+
+                // 打印异常的基本信息，及异常发生时的栈追踪信息，用于调试纠错。
+                //e.printStackTrace();
+
                 // 输出一个友好的错误提示。
                 System.out.println("您输入了一个格式错误的整数");
-                // 如果输入的整数格式不正确，直接转下一轮循环
-                // 跳过当前错误的输入
+
+                // 跳过刚刚引发异常的格式有误的输入，以对下一个输入进行解析。
                 scanner.next();
+
+                // 跳过后续的循环体，继续下一轮输入与解析。
                 continue;
+            } finally {
+                // 无论前边有没有异常发生，finally代码都会被执行。
+                System.out.println("无论正确或错误，反正输入了一个值");
             }
 
             // 如果整数格式对，则对成绩做判断，给5个等级的变量赋值
@@ -93,11 +102,7 @@ public class StatisticScore {
             i++;
         }
 
-        System.out.println("gradeA = " + gradeA);
-        System.out.println("gradeB = " + gradeB);
-        System.out.println("gradeC = " + gradeC);
-        System.out.println("gradeD = " + gradeD);
-        System.out.println("gradeE = " + gradeE);
-//        System.out.println(score);
+        System.out.printf("优%d人，良%d人，中%d人，差%d人，不及格%d人", gradeA, gradeB, gradeC, gradeD, gradeE);
+
     }
 }
