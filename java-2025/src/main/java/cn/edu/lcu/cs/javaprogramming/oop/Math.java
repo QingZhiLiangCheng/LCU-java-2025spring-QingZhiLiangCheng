@@ -1,5 +1,7 @@
 package cn.edu.lcu.cs.javaprogramming.oop;
 
+import cn.edu.lcu.cs.javaprogramming.exception.DividedByZeroException;
+
 /**
  * <p>数学工具类，演示：</p>
  * <ol>
@@ -120,5 +122,20 @@ public class Math {
             return 1; // 0! = 1
         }
         return n * factorialRecursive(n - 1); // n! = n * (n-1)!
+    }
+
+    /**
+     * 除法操作，实在没有啥实际意义，仅用于演示异常操作。
+     *
+     * @param dividend 被除数
+     * @param divisor 除数
+     * @return quotient商
+     */
+    public static double divide(double dividend, double divisor) {
+        if (divisor == 0) {
+            throw new DividedByZeroException("除数不能为0！");
+        }
+        double quotient = dividend / divisor;
+        return quotient;
     }
 }

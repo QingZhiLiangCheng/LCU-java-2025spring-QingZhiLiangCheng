@@ -192,8 +192,23 @@ class MathTest {
     @ParameterizedTest
     @ValueSource(ints = {1, 2, 15, 16, 17, 18, 19})
     void factorial(int n) {
-        int factorial = Math.factorial(n);
+        int factorial = 0;
+        try {
+            factorial = Math.factorial(n);
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+        }
         System.out.println("n = " + n);
         System.out.println("factorial = " + factorial);
+    }
+
+    @Test
+    void divide() {
+        Math.divide(1, 0);
+        // 整数除以0抛出异常
+//        int i = 1/0;
+        // 浮点除以0不抛出异常
+        double d = 1F/0;
+        d = 1/0;
     }
 }
