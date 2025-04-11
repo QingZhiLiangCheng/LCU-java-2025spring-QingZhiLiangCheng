@@ -3,6 +3,7 @@ package cn.edu.lcu.cs.javaprogramming.oop;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -186,5 +187,13 @@ class MathTest {
 
         // 打印运行时间
         System.out.println("Factorial(" + n + ") execution time: " + duration + " ns");
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {1, 2, 15, 16, 17, 18, 19})
+    void factorial(int n) {
+        int factorial = Math.factorial(n);
+        System.out.println("n = " + n);
+        System.out.println("factorial = " + factorial);
     }
 }

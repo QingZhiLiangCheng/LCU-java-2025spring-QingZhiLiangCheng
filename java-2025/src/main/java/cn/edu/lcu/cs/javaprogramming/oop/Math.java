@@ -82,6 +82,7 @@ public class Math {
      * @param n 要计算阶乘的非负整数
      * @return 返回 n 的阶乘值。如果 n 为 0，返回 1。
      * @throws IllegalArgumentException 如果 n 为负数
+     * @throws RuntimeException 如果溢出
      */
     public static int factorial(int n) {
         if (n < 0) {
