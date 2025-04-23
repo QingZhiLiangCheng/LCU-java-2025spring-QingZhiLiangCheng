@@ -1,0 +1,75 @@
+classDiagram
+    class Animal {
+        <<abstract>>
+        +String name
+        +String speciesName
+        +LocalDate birthDate
+        +String color
+        +double weight
+        +String gender
+        +String bodyTemperatureType
+        +void breathe()
+        +void eat()
+        +void reproduce()
+    }
+
+    class Mammal {
+        <<abstract>>
+        +void careForOffspring()
+    }
+
+    class Bird {
+        <<abstract>>
+        +void fly()
+        +void walk()
+    }
+
+    class Fish {
+        <<abstract>>
+        +void swim()
+    }
+
+    class Whale {
+        +void swim()
+    }
+
+    class Bat {
+        +void fly()
+        +void walk()
+    }
+
+    class Monkey {
+        +void walk()
+        +void climb()
+    }
+
+    class Cat {
+        +void walk()
+        +void climb()
+    }
+
+    class Shark {
+        +void swim()
+    }
+
+    class Penguin {
+        +void walk()
+        +void swim()
+    }
+
+    class Swan {
+        +void walk()
+        +void swim()
+        +void fly()
+    }
+
+    Animal <|-- Mammal
+    Animal <|-- Bird
+    Animal <|-- Fish
+    Mammal <|-- Whale
+    Mammal <|-- Bat
+    Mammal <|-- Monkey
+    Mammal <|-- Cat
+    Fish <|-- Shark
+    Bird <|-- Penguin
+    Bird <|-- Swan
