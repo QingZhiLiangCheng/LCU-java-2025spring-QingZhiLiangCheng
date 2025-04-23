@@ -7,7 +7,7 @@ import java.util.Objects;
 /**
  * @author Ling
  */
-public class Dog{
+public class Dog implements Cloneable {
     private String name;
     private Date birthdate;
     private String breed;
@@ -146,7 +146,7 @@ public class Dog{
         return Objects.hash(name, birthdate, breed, color, height, weight, length, sex, origin);
     }
 
-    public static void main(String[] args)  {
+    public static void main(String[] args) throws CloneNotSupportedException {
 
         Dog dog1 = new Dog();
         dog1.setName("小黑");
@@ -160,7 +160,7 @@ public class Dog{
         System.out.println("dog1==dog2 = " + (dog1 == dog2));
         System.out.println("dog1.equals(dog2) = " + dog1.equals(dog2));
 
-        Dog dog3 = dog2.clone();
+        Dog dog3 = (Dog) dog2.clone();
         System.out.println("dog2 = " + dog2);
         System.out.println("dog3 = " + dog3);
 
