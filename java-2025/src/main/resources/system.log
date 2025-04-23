@@ -1,0 +1,5 @@
+# 每行日志包含时间戳、日志级别和日志消息，用空格分隔
+2023-10-01 12:00:00 INFO User logged in
+2023-10-01 12:01:00 ERROR Failed to connect to database
+2023-10-01 12:02:00 DEBUG Debugging information
+2023-10-01 12:03:00 WARN Potential security issue

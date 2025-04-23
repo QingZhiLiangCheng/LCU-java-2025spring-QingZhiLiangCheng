@@ -1,0 +1,7 @@
+# 忽略特定文件
+path/to/file.txt linguist-generated=true
+
+# 忽略特定文件类型
+*.log linguist-generated=true
+*.md linguist-generated=true
+*.mmd linguist-generated=true

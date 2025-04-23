@@ -42,6 +42,7 @@ target/
 ### logs ###
 /logs/
 *.log
+!system.log
 
 ### temp ignore ###
 *.cache
