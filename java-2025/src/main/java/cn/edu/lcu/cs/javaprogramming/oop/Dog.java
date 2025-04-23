@@ -164,6 +164,8 @@ public class Dog implements Cloneable {
         System.out.println("dog2 = " + dog2);
         System.out.println("dog3 = " + dog3);
 
+        System.out.println("dog3.name = " + dog3.name);
+
     }
 
 }
