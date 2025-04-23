@@ -18,6 +18,29 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @date 2022/4/1 23:16
  */
 public class StringDemo extends BaseTest {
+
+    @Test
+    void newDemo(){
+        String s1 = "hello";
+        String s2 = "hello";
+        String s3 = s1;
+        s3 += "!";
+        String s4 = new String("hello");
+        System.out.println("(s1==s2) = " + (s1 == s2));
+        System.out.println("s1.equals(s2) = " + s1.equals(s2));
+
+        System.out.println("(s1==s4) = " + (s1 == s4));
+        System.out.println("s1.equals(s4) = " + s1.equals(s4));
+
+
+
+
+
+
+    }
+
+
+
     /**
      * 将带下划线的字符串转换为驼峰模式<br>
      * 如：map_under_score_to_camel_case to MapUnderScoreToCamelCase
