@@ -2,6 +2,7 @@ package cn.edu.lcu.cs.javaprogramming.oop;
 
 
 import java.util.Date;
+import java.util.Objects;
 
 /**
  * @author Ling
@@ -47,8 +48,14 @@ public class Dog {
     public String toString() {
         return "Dog{" +
                 "name='" + name + '\'' +
+                ", birthdate=" + birthdate +
+                ", breed='" + breed + '\'' +
                 ", color='" + color + '\'' +
+                ", height=" + height +
+                ", weight=" + weight +
+                ", length=" + length +
                 ", sex='" + sex + '\'' +
+                ", origin='" + origin + '\'' +
                 '}';
     }
 
@@ -126,11 +133,33 @@ public class Dog {
         this.origin = origin;
     }
 
-    public static void main(String[] args) {
-        Dog cat = new Dog();
 
-        System.out.println(cat);
-        System.out.println(cat.toString());
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Dog dog = (Dog) o;
+        return height == dog.height && weight == dog.weight && length == dog.length && Objects.equals(name, dog.name) && Objects.equals(birthdate, dog.birthdate) && Objects.equals(breed, dog.breed) && Objects.equals(color, dog.color) && Objects.equals(sex, dog.sex) && Objects.equals(origin, dog.origin);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, birthdate, breed, color, height, weight, length, sex, origin);
+    }
+
+    public static void main(String[] args) {
+
+        Dog dog1 = new Dog();
+        dog1.setName("小黑");
+
+        Dog dog2 = new Dog();
+        dog2.setName("小黑");
+        System.out.println(dog2);
+        System.out.println(dog2.toString());
+
+
+        System.out.println("dog1==dog2 = " + (dog1 == dog2));
+        System.out.println("dog1.equals(dog2) = " + dog1.equals(dog2));
+
     }
 
 }
