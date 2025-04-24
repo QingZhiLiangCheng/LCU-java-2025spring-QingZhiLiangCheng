@@ -2,10 +2,13 @@ package cn.edu.lcu.cs.javaprogramming.clazz;
 
 import cn.edu.lcu.cs.javaprogramming.BaseTest;
 import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import java.security.SecureRandom;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * 随机对象演示
@@ -67,7 +70,25 @@ public class RandomDemo extends BaseTest {
         Random random = new Random();
         random.ints(count, low, high)
 //				.forEach(System.out::println);
-				.forEach(r -> System.out.print("\t" + r));
-		System.out.println();
+                .forEach(r -> System.out.print("\t" + r));
+        System.out.println();
+    }
+
+    /**
+     * 生成[0,100)的整数
+     */
+    @Test
+    public void randomInt() {
+        // Random 生成 [0, 100) 整数
+        Random random = new Random();
+        int num = random.nextInt(100);
+
+        // SecureRandom 生成 16 字节随机数据
+        SecureRandom secureRandom = new SecureRandom();
+        byte[] bytes = new byte[16];
+        secureRandom.nextBytes(bytes);
+
+        // ThreadLocalRandom 生成 [1, 100] 整数
+        int threadNum = ThreadLocalRandom.current().nextInt(1, 101);
     }
 }
