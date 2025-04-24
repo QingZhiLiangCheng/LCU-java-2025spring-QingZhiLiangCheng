@@ -66,8 +66,8 @@ public class RandomDemo extends BaseTest {
     public void randomInts2(int count, int low, int high) {
         Random random = new Random();
         random.ints(count, low, high)
-				.forEach(System.out::println);
-//				.forEach(r -> System.out.print("\t" + r));
+//				.forEach(System.out::println);
+				.forEach(r -> System.out.print("\t" + r));
 		System.out.println();
     }
 }
