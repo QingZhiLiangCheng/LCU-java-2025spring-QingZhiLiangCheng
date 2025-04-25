@@ -1,5 +1,4 @@
 package cn.edu.lcu.cs.qingzhiliangcheng.java2025spring.lecture02;
-import cn.edu.lcu.cs.qingzhilicangcheng.java2025spring.lecture02.ScoresArray;
 import org.junit.jupiter.api.RepeatedTest;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
