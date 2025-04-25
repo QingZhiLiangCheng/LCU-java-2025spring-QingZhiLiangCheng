@@ -34,8 +34,7 @@ public class StringUtils {
      */
     public static boolean isEmpty(String string) {
         // TODO 检查字符串是否为null或在去除前后空格后是否为空字符串
-
-        return false;
+        return string==null || string.trim().isEmpty();
     }
 
     /**
