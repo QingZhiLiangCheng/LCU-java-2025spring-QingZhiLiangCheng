@@ -27,14 +27,16 @@ import java.util.function.Predicate;
 public class StringUtils {
 
     /**
-     * 检查给定的字符串是否为空或仅包含空格
+     * 检查给定的字符串是否为空或仅包含空白
      *
      * @param string 待检查的字符串
-     * @return 如果字符串为空或仅包含空格，则返回true；否则返回false
+     * @return 如果字符串为空或仅包含空白，则返回true；否则返回false
      */
     public static boolean isEmpty(String string) {
-        // TODO 检查字符串是否为null或在去除前后空格后是否为空字符串
-
+        // 检查字符串是否为null或在去除前后空格后是否为空字符串
+        if (string==null || string.trim().equals("")) {
+            return true;
+        }
         return false;
     }
 
@@ -113,6 +115,7 @@ public class StringUtils {
      * 将字符串的第一个字符转换为大写
      * 如果字符串为空或第一个字符已经是大写，则直接返回原字符串
      * 此方法仅在第一个字符为小写时对其进行转换
+     * 一 壹 ？
      *
      * @param src 待转换的字符串
      * @return 转换后的字符串
@@ -125,6 +128,7 @@ public class StringUtils {
         // 将第一个字符转换为大写，并将其余部分拼接回字符串
         return src.substring(0, 1).toUpperCase() + src.substring(1);
     }
+
 
 
     /**
