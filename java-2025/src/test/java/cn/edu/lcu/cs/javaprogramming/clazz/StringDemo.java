@@ -176,4 +176,42 @@ public class StringDemo extends BaseTest {
         assertEquals("select id, name, studentNo from student", sql.toString());
     }
 
+    /**
+     * 打印字符串 n 次
+     * 该方法展示了三种不同的重复打印字符串的方法，并计算每种方法的执行时间
+     * 目的是比较不同方法的效率
+     */
+    @Test
+    public void printStringNTimes() {
+        String str = "Hello, World!";
+        int n = 10000;
+
+        // 使用 for 循环
+        System.out.println("Using for loop:");
+        long startTime = System.nanoTime();
+        for (int i = 0; i < n; i++) {
+            System.out.println(str);
+        }
+        long endTime = System.nanoTime();
+        System.out.printf("Time taken by for loop: %d ns%n", endTime - startTime);
+
+        // 使用 StringBuilder
+        System.out.println("\nUsing StringBuilder:");
+        startTime = System.nanoTime();
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < n; i++) {
+            sb.append(str).append("\n");
+        }
+        System.out.print(sb.toString());
+        endTime = System.nanoTime();
+        System.out.printf("Time taken by StringBuilder: %d ns%n", endTime - startTime);
+
+        // 使用 String.repeat (Java 11 及以上)
+        System.out.println("\nUsing String.repeat:");
+        startTime = System.nanoTime();
+        System.out.println(str.repeat(n).stripTrailing());
+        endTime = System.nanoTime();
+        System.out.printf("Time taken by String.repeat: %d ns%n", endTime - startTime);
+    }
+
 }
