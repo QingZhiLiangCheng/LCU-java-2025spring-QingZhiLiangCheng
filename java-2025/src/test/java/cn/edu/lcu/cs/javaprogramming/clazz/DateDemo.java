@@ -6,11 +6,15 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalAdjusters;
 import java.util.Date;
+
+import static java.time.temporal.TemporalAdjusters.*;
 
 /**
  * 日期时间演示
@@ -48,14 +52,13 @@ public class DateDemo {
     }
 
     @AfterEach
-    void afterEach(){
+    void afterEach() {
         System.out.println("----------------------------------------------------------------");
     }
 
     /**
      * 时间计算。
      * 打印一个时间段耗费的纳秒数
-     *
      */
     @Test
     void duration() {
@@ -71,17 +74,43 @@ public class DateDemo {
      * 母亲节，5月的第2个星期日。
      */
     @Test
-    void mothersDay() {
+    @Deprecated
+    void mothersDayDeprecated() {
         // 生成母亲节日期对象
         // 代码填空
         LocalDate mothersDay = LocalDate.now()
-                .withMonth(5)
-                .withDayOfMonth(1)
+                .withMonth(5)       // 月份设置为5月
+                .withDayOfMonth(1)  // 设置为1号
+                // 将日期调整到最近的星期日（7表示星期日）。
+                // 如果5月1日已经是星期日，则不会改变日期；否则，会调整到最近的星期日。
                 .with(ChronoField.DAY_OF_WEEK, 7)
+                // 在调整后的日期基础上增加一周。
                 .plusWeeks(1);
+
+        // 问题点
+        //5月1日不一定是第一个星期日：
+        //如果5月1日不是星期日，with(ChronoField.DAY_OF_WEEK, 7) 会调整到最近的星期日，这可能是5月的某个星期日，但不一定是第一个星期日。
+        //增加一周可能导致错误的结果：
+        //增加一周后，日期可能会跳过第一个星期日，直接到第二个星期日之后的某个日期。
+        System.out.println("mothersDay = " + mothersDay);
+    }
+
+    /**
+     * 母亲节，5月的第2个星期日。
+     */
+    @Test
+    void mothersDay() {
+        // 获取当前年份
+        int currentYear = LocalDate.now().getYear();
+
+        // 生成母亲节日期对象
+        LocalDate mothersDay = LocalDate.of(currentYear, 5, 1)
+                .with(TemporalAdjusters.nextOrSame(DayOfWeek.SUNDAY)) // 调整到5月的第一个星期日
+                .plusWeeks(1); // 加上一周，得到第二个星期日
 
         System.out.println("mothersDay = " + mothersDay);
     }
+
 
     /**
      * 毕业倒计时
