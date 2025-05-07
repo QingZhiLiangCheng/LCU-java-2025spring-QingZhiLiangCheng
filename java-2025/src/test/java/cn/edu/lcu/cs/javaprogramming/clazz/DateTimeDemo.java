@@ -197,7 +197,8 @@ public class DateTimeDemo {
         int currentYear = LocalDate.now().getYear();
 
         // 生成母亲节日期对象
-        LocalDate mothersDay = LocalDate.of(currentYear, 5, 1).with(TemporalAdjusters.nextOrSame(DayOfWeek.SUNDAY)) // 调整到5月的第一个星期日
+        LocalDate mothersDay = LocalDate.of(currentYear, 5, 1)
+                .with(TemporalAdjusters.nextOrSame(DayOfWeek.SUNDAY)) // 调整到5月的第一个星期日
                 .plusWeeks(1); // 加上一周，得到第二个星期日
 
         System.out.println("mothersDay = " + mothersDay);
