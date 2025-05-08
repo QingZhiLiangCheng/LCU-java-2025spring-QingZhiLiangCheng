@@ -1,0 +1,91 @@
+@startuml
+
+interface Iterable {
+    + Iterator iterator()
+    + void forEach(Consumer action)
+}
+
+interface Collection {
+    + int size()
+    + boolean isEmpty()
+    + boolean contains(Object o)
+    + Iterator iterator()
+    + Object[] toArray()
+    + boolean add(Object o)
+    + boolean remove(Object o)
+    + boolean addAll(Collection c)
+    + void clear()
+}
+
+interface List {
+    + void add(int index, Object element)
+    + Object get(int index)
+    + Object set(int index, Object element)
+    + Object remove(int index)
+    + int indexOf(Object o)
+}
+
+interface Set {
+    + int size()
+    + boolean isEmpty()
+    + boolean contains(Object o)
+    + Iterator iterator()
+    + boolean add(Object o)
+    + boolean remove(Object o)
+}
+
+interface Queue {
+    + boolean add(Object o)
+    + Object remove()
+    + Object peek()
+}
+
+interface Map {
+    + int size()
+    + boolean isEmpty()
+    + boolean containsKey(Object key)
+    + Object get(Object key)
+    + Object put(Object key, Object value)
+    + Object remove(Object key)
+}
+
+class ArrayList
+class LinkedList
+class Vector
+class Stack
+
+class HashSet
+class LinkedHashSet
+class TreeSet
+
+class HashMap
+class LinkedHashMap
+class Hashtable
+class Properties
+class TreeMap
+class PriorityQueue
+
+Iterable <|-- Collection
+Collection <|-- List
+Collection <|-- Set
+Collection <|-- Queue
+
+List <|-- ArrayList
+List <|-- LinkedList
+List <|-- Vector
+Vector <|-- Stack
+
+Set <|-- HashSet
+HashSet <|-- LinkedHashSet
+Set <|-- TreeSet
+
+Queue <|-- LinkedList
+Queue <|-- PriorityQueue
+
+Map <|-- HashMap
+HashMap <|-- LinkedHashMap
+Map <|-- Hashtable
+Hashtable <|-- Properties
+Map <|-- TreeMap
+
+@enduml
