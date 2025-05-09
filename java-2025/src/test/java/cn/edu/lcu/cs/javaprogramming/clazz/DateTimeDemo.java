@@ -115,7 +115,7 @@ public class DateTimeDemo {
     @Test
     public void dateCalculate() {
         // 解析高考日期
-        LocalDate parsedDate = LocalDate.parse("2021-06-7", DateTimeFormatter.ofPattern("yyyy-M-d"));
+        LocalDate parsedDate = LocalDate.parse("2025-06-7", DateTimeFormatter.ofPattern("yyyy-M-d"));
         System.out.println(parsedDate);
         // 高考倒计时100天起始日
         System.out.println(parsedDate.minusDays(100));
@@ -136,6 +136,7 @@ public class DateTimeDemo {
         // 在全新软件开发中避免使用此类
         Date birthdate = new Date(1949, 10, 1);
         System.out.println(birthdate);
+        System.out.println(formatter.format(birthdate));
     }
 
     /**

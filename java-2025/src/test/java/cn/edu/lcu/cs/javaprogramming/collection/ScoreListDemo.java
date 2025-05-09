@@ -3,7 +3,6 @@ package cn.edu.lcu.cs.javaprogramming.collection;
 import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -17,7 +16,7 @@ import java.util.Random;
 // 通过Order注解设置执行顺序
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class ScoreListDemo {
-    private static final int studentAmount = 41;
+    private static final int STUDENT_AMOUNT = 5;
     /**
      * 成绩列表，接口类型。不要声明为任何实现类。
      */
@@ -35,7 +34,7 @@ public class ScoreListDemo {
 
         //scores = new LinkedList<>();
 
-        for (int i = 0; i < studentAmount; i++) {
+        for (int i = 0; i < STUDENT_AMOUNT; i++) {
             Score score = nextScore();
             score.setId((long) (i + 1));
             // 追加对象到列表尾部
@@ -115,7 +114,7 @@ public class ScoreListDemo {
     @Order(1)
     void setOrdinaryScores() {
         // 随机生成若干个成绩
-        int[] randomScores = new Random().ints(studentAmount, 0, 101).toArray();
+        int[] randomScores = new Random().ints(STUDENT_AMOUNT, 0, 101).toArray();
         // 循环将随机成绩赋值给成绩列表中的平时成绩
         // 代码填空
 
@@ -130,6 +129,7 @@ public class ScoreListDemo {
      *
      * @param scores
      */
+
     void print(List<Score> scores) {
         // 遍历打印成绩
         // 代码填空
