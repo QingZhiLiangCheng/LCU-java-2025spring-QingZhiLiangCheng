@@ -133,6 +133,18 @@ public class ScoreListDemo {
     void print(List<Score> scores) {
         // 遍历打印成绩
         // 代码填空
+//        scores.fori
+//        for (int i = 0; i < scores.size(); i++) {
+//            System.out.println(scores.get(i));
+//        }
+
+//        scores.for
+        for (Score score : scores) {
+            System.out.println(score);
+        }
+
+        // Index 5 out of bounds for length 5
+        // scores.get(5);
 
 
     }
