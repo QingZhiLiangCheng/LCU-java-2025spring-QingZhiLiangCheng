@@ -1,0 +1,69 @@
+classDiagram
+direction BT
+class Builder {
+  + buildMethodName() String
+  + setterPrefix() String
+  + builderClassName() String
+  + toBuilder() boolean
+  + access() AccessLevel
+  + builderMethodName() String
+}
+class Comparable~T~ {
+<<Interface>>
+  + compareTo(T) int
+}
+class Data {
+  + staticConstructor() String
+}
+class Default
+class ObtainVia {
+   boolean static
+  + method() String
+  + field() String
+}
+class Score {
+  - String studentName
+  - Integer experimentScore
+  - Integer ordinaryScore
+  - Integer midtermScore
+  - Integer termScore
+  - Long id
+  - String studentNo
+  - String clazzName
+   Integer experimentScore
+   Integer termScore
+   Long id
+   String studentNo
+   Double totalScore
+   String studentName
+   Integer midtermScore
+   String clazzName
+   Integer ordinaryScore
+  + hashCode() int
+  + equals(Object) boolean
+  + toString() String
+  # canEqual(Object) boolean
+  + builder() ScoreBuilder
+  + compareTo(Score) int
+  ~ Score(Long, String, String, String, Integer, Integer, Integer, Integer) 
+}
+class ScoreBuilder {
+  + studentNo(String) ScoreBuilder
+  + id(Long) ScoreBuilder
+  + studentName(String) ScoreBuilder
+  + clazzName(String) ScoreBuilder
+  + ordinaryScore(Integer) ScoreBuilder
+  + experimentScore(Integer) ScoreBuilder
+  + midtermScore(Integer) ScoreBuilder
+  + termScore(Integer) ScoreBuilder
+  + build() Score
+  + toString() String
+  ~ ScoreBuilder() 
+}
+
+Builder  -->  Default 
+Builder  -->  ObtainVia 
+Builder  ..  Score 
+Score  ..>  Comparable~T~ 
+Data  ..  Score 
+Score  -->  ScoreBuilder 
