@@ -94,7 +94,15 @@ public class SetDemo {
     @Test
     public void printFilteredSignupList() {
         System.out.println("去重后的报名表：");
-        // TODO 打印过滤后的报名列表，不包含重复项
+        // 打印过滤后的报名列表，不包含重复项
+        Set<String> signupSet = new HashSet<>();
+        for (List<String> signups : unfilteredSignupList) {
+            for (String signup : signups) {
+                signupSet.add(signup);
+            }
+        }
+        System.out.println(signupSet);
+
 
     }
 
