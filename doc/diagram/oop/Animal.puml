@@ -1,0 +1,20 @@
+@startuml
+participant "Test" as Test
+participant "Dog" as Dog
+participant "Animal" as Animal
+
+Test -> Dog : new()
+activate Dog
+
+Dog -> Animal : super()
+activate Animal
+
+Animal -> Animal : System.out.print("Animal构造方法: ")
+Animal -> Dog : makeSound()  ' 多态调用Dog的makeSound
+Dog --> Animal : null
+deactivate Animal
+
+Dog -> Dog : makeSound()
+Dog --> Test : 汪汪
+deactivate Dog
+@enduml

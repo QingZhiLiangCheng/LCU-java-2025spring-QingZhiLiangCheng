@@ -1,0 +1,73 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+annotation Builder << annotation >> {
+  + buildMethodName(): String
+  + setterPrefix(): String
+  + builderClassName(): String
+  + toBuilder(): boolean
+  + access(): AccessLevel
+  + builderMethodName(): String
+}
+interface Comparable<T> << interface >> {
+  + compareTo(T): int
+}
+annotation Data << annotation >> {
+  + staticConstructor(): String
+}
+annotation Default << annotation >>
+annotation ObtainVia << annotation >> {
+   static: boolean
+  + method(): String
+  + field(): String
+}
+class Score {
+  - studentName: String
+  - experimentScore: Integer
+  - ordinaryScore: Integer
+  - midtermScore: Integer
+  - termScore: Integer
+  - id: Long
+  - studentNo: String
+  - clazzName: String
+   experimentScore: Integer
+   termScore: Integer
+   id: Long
+   studentNo: String
+   totalScore: Double
+   studentName: String
+   midtermScore: Integer
+   clazzName: String
+   ordinaryScore: Integer
+  + hashCode(): int
+  + equals(Object): boolean
+  + toString(): String
+  # canEqual(Object): boolean
+  + builder(): ScoreBuilder
+  + compareTo(Score): int
+  ~ Score(Long, String, String, String, Integer, Integer, Integer, Integer): 
+}
+class ScoreBuilder {
+  + studentNo(String): ScoreBuilder
+  + id(Long): ScoreBuilder
+  + studentName(String): ScoreBuilder
+  + clazzName(String): ScoreBuilder
+  + ordinaryScore(Integer): ScoreBuilder
+  + experimentScore(Integer): ScoreBuilder
+  + midtermScore(Integer): ScoreBuilder
+  + termScore(Integer): ScoreBuilder
+  + build(): Score
+  + toString(): String
+  ~ ScoreBuilder(): 
+}
+
+Default       +-[#820000,plain]-  Builder      
+ObtainVia     +-[#820000,plain]-  Builder      
+Score         -[#999900,dotted]-  Builder      
+Score         -[#008200,dashed]-^  Comparable   
+Score         -[#999900,dotted]-  Data         
+ScoreBuilder  +-[#820000,plain]-  Score        
+@enduml
