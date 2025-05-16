@@ -72,6 +72,7 @@ public class ScoreListDemo {
 
 
 
+        System.out.println("sortScores");
         print(scores);
     }
 
@@ -85,7 +86,7 @@ public class ScoreListDemo {
         // 代码填空
 
 
-
+        System.out.println("deleteFailingScores");
         print(scores);
     }
 
@@ -101,7 +102,7 @@ public class ScoreListDemo {
         // 代码填空
 
 
-
+        System.out.println("getFailingScores");
         print(failingScores);
     }
 
@@ -121,6 +122,7 @@ public class ScoreListDemo {
 
 
         //遍历打印
+        System.out.println("setOrdinaryScores");
         print(scores);
     }
 
@@ -147,5 +149,10 @@ public class ScoreListDemo {
         // scores.get(5);
 
 
+    }
+
+    @AfterEach
+    void afterEach(){
+        System.out.println("-".repeat(80));
     }
 }
