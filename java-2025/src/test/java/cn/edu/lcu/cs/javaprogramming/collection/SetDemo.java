@@ -96,14 +96,16 @@ public class SetDemo {
         System.out.println("去重后的报名表：");
         // 打印过滤后的报名列表，不包含重复项
         Set<String> signupSet = new HashSet<>();
-        for (List<String> signups : unfilteredSignupList) {
-            for (String signup : signups) {
-                signupSet.add(signup);
-            }
-        }
+//        for (List<String> signups : unfilteredSignupList) {
+//            for (String signup : signups) {
+//                signupSet.add(signup);
+//            }
+//        }
+
+//        unfilteredSignupList.forEach(signups -> signups.forEach(s -> signupSet.add(s)));
+//        unfilteredSignupList.forEach(signups ->signupSet.addAll(signups));
+        unfilteredSignupList.forEach(signupSet::addAll);
         System.out.println(signupSet);
-
-
     }
 
 
