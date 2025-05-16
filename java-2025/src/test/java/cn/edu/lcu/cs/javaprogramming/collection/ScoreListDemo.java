@@ -118,8 +118,9 @@ public class ScoreListDemo {
         int[] randomScores = new Random().ints(STUDENT_AMOUNT, 0, 101).toArray();
         // 循环将随机成绩赋值给成绩列表中的平时成绩
         // 代码填空
-
-
+        for (int i = randomScores.length - 1; i >= 0; i--) {
+            scores.get(i).setOrdinaryScore(randomScores[i]);
+        }
 
         //遍历打印
         System.out.println("setOrdinaryScores");
@@ -138,6 +139,11 @@ public class ScoreListDemo {
 //        scores.fori
 //        for (int i = 0; i < scores.size(); i++) {
 //            System.out.println(scores.get(i));
+//        }
+
+//        scores.forr
+//        for (int i = scores.size() - 1; i >= 0; i--) {
+//
 //        }
 
 //        scores.for
