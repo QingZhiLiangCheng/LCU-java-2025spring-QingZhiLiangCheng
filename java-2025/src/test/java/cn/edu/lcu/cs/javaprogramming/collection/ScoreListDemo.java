@@ -69,8 +69,7 @@ public class ScoreListDemo {
     void sortScores() {
         // 根据平时成绩排序
         // 代码填空
-
-
+        scores.sort((s1, s2) -> s1.getOrdinaryScore().compareTo(s2.getOrdinaryScore()));
 
         System.out.println("sortScores");
         print(scores);
@@ -84,7 +83,26 @@ public class ScoreListDemo {
     void deleteFailingScores() {
         // 删除不及格的平时成绩
         // 代码填空
+        // 用foreach遍历的时候，不能修改列表的结构，否则出并发错误
+//        for (Score score : scores) {
+//            if (score.getOrdinaryScore()<60) {
+//                scores.remove(score);
+//            }
+//        }
 
+//        for (int i = 0; i < scores.size(); i++) {
+//            Score score = scores.get(i);
+//            if (score.getOrdinaryScore()<60) {
+//                scores.remove(score);
+//            }
+//        }
+
+        for (int i = scores.size() - 1; i >= 0; i--) {
+            Score score = scores.get(i);
+            if (score.getOrdinaryScore()<60) {
+                scores.remove(score);
+            }
+        }
 
         System.out.println("deleteFailingScores");
         print(scores);
@@ -99,8 +117,13 @@ public class ScoreListDemo {
         List<Score> failingScores = new ArrayList<>();
 
         // 获取平时成绩不及格的成绩
-        // 代码填空
-
+        // 代码填空 scores.for
+        for (Score score : scores) {
+//            score.getOrdinaryScore()<60.if
+            if (score.getOrdinaryScore()<60) {
+                failingScores.add(score);
+            }
+        }
 
         System.out.println("getFailingScores");
         print(failingScores);
