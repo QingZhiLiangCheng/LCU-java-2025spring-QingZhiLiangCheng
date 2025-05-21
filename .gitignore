@@ -42,6 +42,7 @@ target/
 ### logs ###
 /logs/
 *.log
+!system.log
 
 ### temp ignore ###
 *.cache
@@ -57,3 +58,5 @@ target/
 Thumbs.db
 Servers
 .metadata
+.arts
+.jlsp

@@ -1,0 +1,5 @@
+flowchart TD
+    A[创建Student对象] --> B[调用getAge方法]
+    B --> C{返回值为-1}
+    C -->|Yes| D[测试通过]
+    C -->|No| E[测试失败]

@@ -27,7 +27,11 @@ public class DrawLots {
 			e.printStackTrace();
 		}
 		String line = lines.get(new Random().nextInt(lines.size()));
+		// 座号,学号,姓名,班级,
 		System.out.println(line);
+		// 只显示座号与姓名
+//		String[] strings = line.split(",");
+//		System.out.println(strings[0] + "\t" + strings[2]);
 	}
 
 }

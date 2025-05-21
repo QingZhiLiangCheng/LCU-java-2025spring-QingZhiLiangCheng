@@ -1,0 +1,19 @@
+@startuml
+class Score {
+- Long id
+- String studentNo
+- String studentName
+- String clazzName
+- Integer ordinaryScore
+- Integer experimentScore
+- Integer midtermScore
+- Integer termScore
++ Double getTotalScore()
++ int compareTo(Score)
+}
+
+
+
+
+Comparable <|.. Score
+@enduml
