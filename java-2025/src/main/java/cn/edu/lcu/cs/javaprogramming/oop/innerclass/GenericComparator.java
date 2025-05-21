@@ -4,18 +4,20 @@ package cn.edu.lcu.cs.javaprogramming.oop.innerclass;
  * 用于对类型进行比较的接口。 <br>
  * 不同的接口实现，对应不同的比较规则。
  *
- * @date 2025-05-21
- *
  * @author ling
+ * @date 2025-05-21
  */
 public interface GenericComparator<T> {
+
     /**
-     * 比较两个类型实例 <br>
-     * 究竟针对哪个或哪些属性进行比较，比较的规则是什么，都不确定，所以定义为抽象的方法。
+     * 比较两个对象的顺序。
      *
-     * @param t1 类型1
-     * @param t2 类型2
-     * @return 正数，e1比e2更好；0，两者不相上下；负数，e1不如e2
+     * @param t1 第一个要比较的对象
+     * @param t2 第二个要比较的对象
+     * @return 一个整数，表示对象的相对顺序：<br>
+     * 负值表示 t1 应该排在 t2 前面，<br>
+     * 正值表示 t1 应该排在 t2 后面，<br>
+     * 零表示 t1 和 t2 相等（在排序中的位置相同）。
      */
     int compare(T t1, T t2);
 }
