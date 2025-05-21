@@ -4,7 +4,7 @@ package cn.edu.lcu.cs.javaprogramming.oop.innerclass;
  * 用于对雇员进行比较的接口。 <br>
  * 不同的接口实现，对应不同的比较规则。
  *
- * @date 2022/3/12 19:27
+ * @date 2025-05-21
  *
  * @author ling
  */
