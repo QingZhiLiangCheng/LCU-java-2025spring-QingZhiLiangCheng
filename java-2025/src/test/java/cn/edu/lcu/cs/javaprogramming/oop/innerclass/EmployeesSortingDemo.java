@@ -72,9 +72,10 @@ public class EmployeesSortingDemo {
     @BeforeEach
     void beforeEach() {
         System.out.println("-------------------华丽丽的分隔线，排序前---------------------------");
-        for (Employee employee : employees) {
-            System.out.println(employee);
-        }
+//        for (Employee employee : employees) {
+//            System.out.println(employee);
+//        }
+        Arrays.stream(employees).forEach(System.out::println);
     }
 
     /**
