@@ -103,8 +103,8 @@ public class EmployeesSortingDemo {
      */
     @Test
     void sortBySalary() {
-        // todo  使用Lambda表达式按薪资升序排序员工数组
-
+        // 使用Lambda表达式按薪资升序排序员工数组
+        Arrays.sort(employees, (e1, e2) -> (int) (e1.getSalary() - e2.getSalary()));
     }
 
     /**
