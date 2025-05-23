@@ -1,4 +1,4 @@
-package cn.edu.lcu.cs.javaprogramming.oop.innerclass;
+package cn.edu.lcu.cs.qingzhiliangcheng.java2025spring.lecture13.innerclass;
 
 import lombok.extern.java.Log;
 import org.junit.jupiter.api.AfterEach;
@@ -75,11 +75,9 @@ class EmployeeComparatorTest {
 
     @Test
     void compareSalaryWithLambda() {
-        // 使用lambda表达式，对两个雇员的工资进行比较。
-        Comparator comparator = (e1, e2) -> (int) (e1.getSalary() - e2.getSalary());
-
-        System.out.println("comparator.compare(zhangsan, lisi) = " + comparator.compare(zhangsan, lisi));
-
+        // todo 使用lambda表达式，对两个雇员的工资进行比较。
+        GenericComparator<Employee> comparator = (e1, e2)
+                -> (int) (e1.getSalary() - e2.getSalary());
     }
 
 

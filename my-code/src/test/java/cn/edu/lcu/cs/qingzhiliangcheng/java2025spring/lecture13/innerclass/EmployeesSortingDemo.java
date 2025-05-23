@@ -1,4 +1,4 @@
-package cn.edu.lcu.cs.javaprogramming.oop.innerclass;
+package cn.edu.lcu.cs.qingzhiliangcheng.java2025spring.lecture13.innerclass;
 
 import lombok.extern.java.Log;
 import org.junit.jupiter.api.AfterEach;
@@ -7,7 +7,8 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.util.Arrays;
-import java.util.Comparator;
+import java.util.Collection;
+import java.util.Collections;
 
 /**
  * 对雇员数组进行各种排序
@@ -85,16 +86,8 @@ public class EmployeesSortingDemo {
      */
     @Test
     void sortByAge() {
-        // 使用Lambda表达式按年龄升序排序员工数组
-        Arrays.sort(employees, (o1, o2) -> o1.getAge() - o2.getAge());
-//        Comparator<Employee> comparator = new Comparator<Employee>() {
-//            @Override
-//            public int compare(Employee o1, Employee o2) {
-//                return o1.getAge() - o2.getAge();
-//            }
-//        };
-//        Arrays.sort(employees, comparator);
-
+       // todo  使用Lambda表达式按年龄升序排序员工数组
+        Arrays.sort(employees, (e1, e2) -> (int) (e1.getAge() - e2.getAge()));
     }
 
     /**
@@ -103,8 +96,8 @@ public class EmployeesSortingDemo {
      */
     @Test
     void sortBySalary() {
-        // 使用Lambda表达式按薪资升序排序员工数组
-        Arrays.sort(employees, (e1, e2) -> (int) (e1.getSalary() - e2.getSalary()));
+        // todo  使用Lambda表达式按薪资升序排序员工数组
+
     }
 
     /**
