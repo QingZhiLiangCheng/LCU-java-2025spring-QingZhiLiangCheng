@@ -75,7 +75,10 @@ class EmployeeComparatorTest {
 
     @Test
     void compareSalaryWithLambda() {
-        // todo 使用lambda表达式，对两个雇员的工资进行比较。
+        // 使用lambda表达式，对两个雇员的工资进行比较。
+        Comparator comparator = (e1, e2) -> (int) (e1.getSalary() - e2.getSalary());
+
+        System.out.println("comparator.compare(zhangsan, lisi) = " + comparator.compare(zhangsan, lisi));
 
     }
 
