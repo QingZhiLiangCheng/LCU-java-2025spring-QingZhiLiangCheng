@@ -118,4 +118,47 @@ List<String> result = list.stream()
 
 ---
 
-如果你有具体的使用场景或问题，欢迎进一步提问！
+以下是一个 **Stream 操作一览表**，涵盖了 Java 8 Stream 的常用操作，并按类型分类整理：
+
+---
+
+### 10 **Stream 常用操作一览表**
+
+| 操作名           | 类型             | 描述说明                                                   | 示例代码                                                                 |
+|------------------|------------------|------------------------------------------------------------|--------------------------------------------------------------------------|
+| `filter`         | 中间操作         | 过滤出满足条件的元素                                       | `.filter(s -> s.getAge() > 20)`                                         |
+| `map`            | 中间操作         | 将每个元素映射为另一种形式                                 | `.map(Student::getName)`                                                |
+| `flatMap`        | 中间操作         | 将每个元素映射为一个流，并将所有流合并成一个流             | `.flatMap(list -> list.stream())`                                        |
+| `distinct`       | 中间操作         | 去除重复元素                                               | `.distinct()`                                                           |
+| `sorted`         | 中间操作         | 对流中的元素进行排序                                       | `.sorted(Comparator.comparing(Student::getScore).reversed())`           |
+| `peek`           | 中间操作         | 对每个元素执行操作（主要用于调试）                         | `.peek(System.out::println)`                                            |
+| `limit`          | 中间操作         | 截取前 n 个元素                                            | `.limit(5)`                                                             |
+| `skip`           | 中间操作         | 跳过前 n 个元素                                            | `.skip(2)`                                                              |
+| `forEach`        | 终端操作         | 对每个元素执行指定操作                                     | `.forEach(student -> System.out.println(student.getName()))`             |
+| `collect`        | 终端操作         | 将流结果收集到集合或其他结构中                             | `.collect(Collectors.toList())`                                          |
+| `reduce`         | 终端操作         | 归约操作，如求和、最大值等                                 | `.map(Student::getScore).reduce(Double::sum)`                            |
+| `count`          | 终端操作         | 返回流中元素的数量                                         | `.count()`                                                              |
+| `anyMatch`       | 终端操作         | 判断是否存在至少一个匹配的元素                             | `.anyMatch(s -> s.getScore() > 90)`                                     |
+| `allMatch`       | 终端操作         | 判断是否所有元素都匹配某个条件                             | `.allMatch(s -> s.getAge() >= 18)`                                      |
+| `noneMatch`      | 终端操作         | 判断是否没有元素匹配某个条件                               | `.noneMatch(s -> s.getScore() < 60)`                                    |
+| `findFirst`      | 终端操作         | 获取第一个元素                                             | `.findFirst().ifPresent(System.out::println)`                           |
+| `findAny`        | 终端操作         | 获取任意一个元素（常用于并行流）                           | `.findAny().ifPresent(System.out::println)`                             |
+| `toArray`        | 终端操作         | 将流转换为数组                                             | `.toArray(String[]::new)`                                               |
+
+---
+
+### 11. **常见 Collectors 收集器**
+
+| 收集器方法         | 描述                                   | 示例代码                                                       |
+|--------------------|----------------------------------------|----------------------------------------------------------------|
+| `toList()`         | 收集为 `List`                          | `.collect(Collectors.toList())`                                 |
+| `toSet()`          | 收集为 `Set`                           | `.collect(Collectors.toSet())`                                  |
+| [toMap()](file://D:\IdeaProjects\java-2025\java-2025\src\test\java\cn\edu\lcu\cs\javaprogramming\collection\ScoreStreamDemo.java#L200-L211)          | 收集为 `Map`                           | `.collect(Collectors.toMap(Student::getId, Function.identity()))` |
+| [groupingBy()](file://D:\IdeaProjects\java-2025\java-2025\src\test\java\cn\edu\lcu\cs\javaprogramming\collection\ScoreStreamDemo.java#L229-L238)     | 按照某个属性分组                       | `.collect(Collectors.groupingBy(Student::getGender))`          |
+| [partitioningBy()](file://D:\IdeaProjects\java-2025\java-2025\src\test\java\cn\edu\lcu\cs\javaprogramming\collection\ScoreStreamDemo.java#L216-L224) | 按照条件分区（true/false 分组）        | `.collect(Collectors.partitioningBy(s -> s.getScore() >= 60))` |
+| `joining()`        | 字符串拼接                             | `.map(Student::getName).collect(Collectors.joining(", "))`    |
+| `summarizingInt()` / `Double` / `Long` | 汇总统计信息（计数、平均、最大、最小、总和） | `.collect(Collectors.summarizingDouble(Student::getScore))`   |
+
+---
+
+该表格可作为 Java Stream API 学习与查阅的快速参考。如需更详细的示例或解释，请进一步提问！
