@@ -17,10 +17,20 @@ public class StudentService {
      * @return 符合条件的学生列表
      */
     public List<Student> filterStudentsByAge(List<Student> students, int ageThreshold) {
+//        ArrayList<Student> list = new ArrayList<>();
+//        for (Student student : students) {
+//            if (student.getAge() > ageThreshold) {
+//                list.add(student);
+//            }
+//        }
+//        return list;
+
+
         // 使用流处理来过滤学生列表，保留年龄大于指定阈值的学生
         return students.stream()
                 .filter(s -> s.getAge() > ageThreshold)
-                .collect(Collectors.toList());
+                .toList();
+//                .collect(Collectors.toList());
     }
 
 
@@ -34,6 +44,7 @@ public class StudentService {
         // 使用Java Stream API从学生列表中提取分数
         return students.stream()
                 .map(Student::getScore)
+//                .map(student -> student.getScore()+10)
                 .collect(Collectors.toList());
     }
 
