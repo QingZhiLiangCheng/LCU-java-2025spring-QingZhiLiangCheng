@@ -50,7 +50,7 @@ public class StudentService {
                     student.setMidExam(Double.parseDouble(values[5]));
                     student.setFinalExam(Double.parseDouble(values[6]));
                     student.setTotalScore(Double.parseDouble(values[7]));
-                    student.setGender("Ů".equals(values[8]) ? "女" : "男");
+                    student.setGender(values[8]);
 
                     students.add(student);
                 }
