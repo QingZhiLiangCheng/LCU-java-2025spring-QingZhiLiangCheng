@@ -1,4 +1,4 @@
-package cn.edu.lcu.cs.javaprogramming.collection;
+package cn.edu.lcu.cs.qingzhiliangcheng.java2025spring.lecture14.collection;
 
 
 import cn.edu.lcu.cs.javaprogramming.annotations.Range;
